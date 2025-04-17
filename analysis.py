@@ -1,7 +1,10 @@
 # Iris Dataset Analysis
 
 # First stage of the project: Data Analysis
+
+# ------------------------------
 # Importing necessary libraries
+# ------------------------------
 
 import os                           # Used to check file paths
 import numpy as np                  # Used for calculating means and standard deviations
@@ -49,3 +52,40 @@ if os.path.exists(filename):  # Checking if file exists before opening it
 # - line.strip(): https://docs.python.org/3/library/stdtypes.html#str.strip, https://www.w3schools.com/python/ref_string_strip.asp
 # - append(): https://docs.python.org/3/tutorial/datastructures.html#more-on-lists, https://www.w3schools.com/python/ref_list_append.asp,
 # https://www.geeksforgeeks.org/python-list-append-method/
+
+else:
+    print(f"File not found: filename")  
+    exit()
+
+# ----------------------------
+# Calculating Summary Statistics Using NumPy
+# ----------------------------
+summary_stats = {
+    "sepal_length": {
+        "min": np.min(sepal_lengths),  
+        "max": max(sepal_lengths),
+        "mean": sum(sepal_lengths) / len(sepal_lengths  
+    },
+    "sepal_width": {
+        "min": min(sepal_widths),
+        "max": max(sepal_widths),
+        "mean": np.mean(sepal_widths)
+    },
+    "petal_length": {
+        "min": min(petal_lengths),
+        "max": max(petal_lengths),
+        "mean": np.mean(petal_widths)  
+    },
+    "petal_width": {
+        "min": min(petal_widths),
+        "max": max(petal_widths),
+        "mean": np.mean(petal_widths)
+    }
+}
+
+# 📚 References:
+# else: https://www.w3schools.com/python/python_conditions.asp, https://www.geeksforgeeks.org/python-if-else/
+# - min()/max(): https://docs.python.org/3/library/functions.html#min, https://www.geeksforgeeks.org/max-min-python/,
+# https://www.geeksforgeeks.org/use-of-min-and-max-in-python/
+# https://realpython.com/python-min-and-max/#:~:text=Python%20uses%20these%20code%20points,min()%20and%20max()%20.&text=To%20find%20the%20smallest%20or,code%20points%20of%20initial%20characters.
+# - numpy.mean(): https://numpy.org/doc/2.2/reference/generated/numpy.mean.html, https://www.geeksforgeeks.org/numpy-mean-in-python/
