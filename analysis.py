@@ -54,17 +54,17 @@ if os.path.exists(filename):  # Checking if file exists before opening it
 # https://www.geeksforgeeks.org/python-list-append-method/
 
 else:
-    print(f"File not found: filename")  
-    exit()
+    print(f"File not found: {filename}") # fixed to make a variable for the filename {} → https://rebrand.ly/66fbdc
+    exit() # https://rebrand.ly/84ba31
 
 # ----------------------------
 # Calculating Summary Statistics Using NumPy
 # ----------------------------
 summary_stats = {
     "sepal_length": {
-        "min": np.min(sepal_lengths),  
+        "min": min(sepal_lengths),
         "max": max(sepal_lengths),
-        "mean": sum(sepal_lengths) / len(sepal_lengths  
+        "mean": np.mean(sepal_lengths)
     },
     "sepal_width": {
         "min": min(sepal_widths),
@@ -74,7 +74,7 @@ summary_stats = {
     "petal_length": {
         "min": min(petal_lengths),
         "max": max(petal_lengths),
-        "mean": np.mean(petal_widths)  
+        "mean": np.mean(petal_lengths)
     },
     "petal_width": {
         "min": min(petal_widths),
