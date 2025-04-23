@@ -24,6 +24,7 @@ It is commonly used in tutorials for learning Python libraries such as NumPy, Pa
 - https://scikit-learn.org/1.4/auto_examples/datasets/plot_iris_dataset.html
 - https://www.kaggle.com/datasets/uciml/iris
 - https://www.geeksforgeeks.org/iris-dataset/
+- https://www.geeksforgeeks.org/exploratory-data-analysis-on-iris-dataset/
 
 ---
 
@@ -41,9 +42,9 @@ The goal was to understand the general shape of the data and prepare me for the 
 1. *Reading the dataset*
 
 I created lists for each dataset. The function `open()` opens the file and reads it line by line. For each line:\
-Extra spaces and newlines are removed using `.strip()`
-The values are split into separate pieces using `.split(',')`
-The four numeric values are converted to floats and added to separate lists (one for each measurement).
+- Extra spaces and newlines are removed using `.strip()`
+- The values are split into separate pieces using `.split(',')`
+- The four numeric values are converted to floats and added to separate lists (one for each measurement).
 
 According to my research, by using this approach I can work with strings, create loops and `if` statements and grow lists (by using `.append()`). 
 
@@ -79,3 +80,9 @@ Because `.describe()` includes the median as the "50%", it was added again under
 
 My output so far:
 ![Output](<Part 1 output.png>)
+
+
+💭 *Personal Notes on this part:*
+
+- I relied on online references abut also similar taskwork from Principles of Data Analytics module. Perhaps some of the solutions are not as pratical as they could be but it made me more comnfortable to use something that I used before, if that makes sense.
+

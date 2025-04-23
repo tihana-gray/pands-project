@@ -111,12 +111,78 @@ print(summary)
 summary.to_csv("summary.txt", sep='\t')
 
 # 📚 Reference:
-# https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html
+# - https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html
+# - else: https://www.w3schools.com/python/python_conditions.asp, https://www.geeksforgeeks.org/python-if-else/
+# - min()/max(): https://docs.python.org/3/library/functions.html#min, https://www.geeksforgeeks.org/max-min-python/,
+# - https://www.geeksforgeeks.org/use-of-min-and-max-in-python/
+# - https://realpython.com/python-min-and-max/#:~:text=Python%20uses%20these%20code%20points,min()%20and%20max()%20.&text=To%20find%20the%20smallest%20or,code%20points%20of%20initial%20characters.
+# - numpy.mean(): https://numpy.org/doc/2.2/reference/generated/numpy.mean.html, https://www.geeksforgeeks.org/numpy-mean-in-python/
 
+
+# ------------------------------------------------------------
+# Outputting a summary of each variable to a single text file
+# ------------------------------------------------------------
+
+# This tuple below groups together the name of each variable with its list of values.
+# Each item is a pair: ("variable name", list_of_values)
+# Tuples are useful when I want to keep related things together and loop through them.
+# 📚 Reference: https://www.w3schools.com/python/python_tuples.asp
+
+iris_data = (
+    ("sepal_length", sepal_lengths),
+    ("sepal_width", sepal_widths),
+    ("petal_length", petal_lengths),
+    ("petal_width", petal_widths)
+)
+
+# Looping through each variable one by one
+for item in iris_data:
+    name = item[0]       # The name of the variable, like "sepal_length"
+    values = item[1]     # The actual list of numbers for that variable
+
+    # Now I calculate some basic statistics using NumPy
+    mean_val = np.mean(values)      # 📚 https://www.geeksforgeeks.org/numpy-mean-in-python/
+    min_val = min(values)           # 📚 https://www.geeksforgeeks.org/use-of-min-and-max-in-python/
+    max_val = max(values)           # 📚 https://www.geeksforgeeks.org/use-of-min-and-max-in-python/
+    std_val = np.std(values)        # 📚 https://numpy.org/doc/stable/reference/generated/numpy.std.html
+    median_val = np.median(values)  # 📚 https://www.geeksforgeeks.org/numpy-median-in-python/
+
+    # Now making a file just for this variable (e.g. "sepal_length.txt") → 📚 https://shorturl.at/DhS7F
+    file_name = name + ".txt"  # Just adding ".txt" to the name to create text file 
+
+    # Open the file in write mode ("w" = create or overwrite the file)
+    f = open(file_name, "w")  # 📚 https://www.w3schools.com/python/ref_func_open.asp
+
+    # Writing each stat to the file. 
+    f.write(name + " summary:\n")
+    f.write("Mean: " + str(round(mean_val, 2)) + "\n")    # Rounding numbers: 📚 https://www.w3schools.com/python/ref_func_round.asp
+    f.write("Min: " + str(round(min_val, 2)) + "\n")      # Newline characters: 📚 https://shorturl.at/uKg9V
+    f.write("Max: " + str(round(max_val, 2)) + "\n")      # Converting values into strings: 📚 https://www.w3schools.com/python/ref_func_str.asp
+    f.write("Std: " + str(round(std_val, 2)) + "\n")      # Adding text: 📚 https://www.w3schools.com/python/ref_file_write.asp
+    f.write("Median: " + str(round(median_val, 2)) + "\n")
+
+    f.close()  # Closing the file when done writing
+    # 📚 File closing info: https://www.w3schools.com/python/ref_file_close.asp
+
+    # Re-opening the file in read mode to check if the output worked (this part is optional)
+    f = open(file_name, "r")       # "r" = read-only mode
+    print(f.read())                # This prints the contents of the file in the terminal
+    f.close()                      # Closing it again after reading
 
 # 📚 References:
-# else: https://www.w3schools.com/python/python_conditions.asp, https://www.geeksforgeeks.org/python-if-else/
-# - min()/max(): https://docs.python.org/3/library/functions.html#min, https://www.geeksforgeeks.org/max-min-python/,
+# https://www.w3schools.com/python/python_tuples.asp
+# https://www.w3schools.com/python/python_for_loops.asp
+# https://realpython.com/python-for-loop/
+# https://www.geeksforgeeks.org/numpy-mean-in-python/
 # https://www.geeksforgeeks.org/use-of-min-and-max-in-python/
-# https://realpython.com/python-min-and-max/#:~:text=Python%20uses%20these%20code%20points,min()%20and%20max()%20.&text=To%20find%20the%20smallest%20or,code%20points%20of%20initial%20characters.
-# - numpy.mean(): https://numpy.org/doc/2.2/reference/generated/numpy.mean.html, https://www.geeksforgeeks.org/numpy-mean-in-python/
+# https://www.geeksforgeeks.org/numpy-std-in-python/
+# https://numpy.org/doc/stable/reference/generated/numpy.std.html
+# https://www.geeksforgeeks.org/numpy-median-in-python/
+# https://superuser.com/questions/940463/file-names-starting-with-a-string-in-the-format-of-txt-give-error-in-for
+# https://www.w3schools.com/python/ref_func_open.asp
+# https://www.w3schools.com/python/python_strings_methods.asp
+# https://stackoverflow.com/questions/60885439/how-the-n-symbol-works-in-python
+# https://www.w3schools.com/python/ref_func_round.asp
+# https://www.w3schools.com/python/ref_func_str.asp
+# https://www.w3schools.com/python/ref_file_write.asp
+# https://www.w3schools.com/python/ref_file_close.asp
