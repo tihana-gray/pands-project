@@ -186,3 +186,47 @@ for item in iris_data:
 # https://www.w3schools.com/python/ref_func_str.asp
 # https://www.w3schools.com/python/ref_file_write.asp
 # https://www.w3schools.com/python/ref_file_close.asp
+
+
+# ------------------------------
+# Importing necessary libraries
+# ------------------------------
+
+import matplotlib.pyplot as plt   # 📚 Matplotlib used for basic plotting → https://matplotlib.org/stable/users/index.html
+import seaborn as sns             # 📚 Seaborn used for better-looking graphs → https://seaborn.pydata.org/
+
+# Looping through each variable from iris_data tuple
+for item in iris_data:
+    name = item[0]     # The name of the variable (like "sepal_length")
+    values = item[1]   # The actual list of values for that variable
+
+    # ------------------------------
+    # Creating the plot
+    # ------------------------------
+
+    plt.figure(figsize=(8, 6))    # 📚 Creates a new figure → https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html
+    sns.histplot(values, bins=20, kde=False, color="skyblue", edgecolor="black")  
+    # 📚 Seaborn histplot → https://seaborn.pydata.org/generated/seaborn.histplot.html
+    # - bins=20 makes 20 bars
+    # - kde=False removes the smooth curve (only bars)
+    # - color and edgecolor make it nicer looking
+
+    # ------------------------------
+    # Adding titles and labels
+    # ------------------------------
+
+    plt.title(name + " Distribution", fontsize=14)    # 📚 Add title → https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html
+    plt.xlabel(name, fontsize=12)                     # 📚 X-axis label → https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html
+    plt.ylabel("Frequency", fontsize=12)              # 📚 Y-axis label → https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html
+
+    plt.grid(True)  # 📚 Adding grid lines to the plot to make it easier to read → https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
+
+    # ------------------------------
+    # Saving the plot
+    # ------------------------------
+
+    file_name = name + "_histogram.png"     # Make the file name
+    plt.savefig(file_name)                  # 📚 Save the figure as a PNG file → https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
+
+    plt.close()   # 📚 Closing the figure to free up memory (CHECK THIS!!!!) → https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
+
