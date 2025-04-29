@@ -240,20 +240,35 @@ import seaborn as sns
 # List of variable names
 variables = ["sepal_length", "sepal_width", "petal_length", "petal_width"]
 
-# Loop through pairs 
-for i in range(len(variables)): # https://www.w3schools.com/python/ref_func_range.asp
-    for j in range(i+1, len(variables)): # https://www.w3schools.com/python/gloss_python_for_nested.asp
-        x_variable = variable_names[i] # 📚 https://stackoverflow.com/questions/18648626/for-loop-with-two-variables
-        y_variable = variable_names[j]
+# Dictionary to hold the actual values for each variable
+variable_data = {
+    "sepal_length": sepal_lengths,
+    "sepal_width": sepal_widths,
+    "petal_length": petal_lengths,
+    "petal_width": petal_widths
+}
+# 📚 Reference: https://www.w3schools.com/python/python_dictionaries.asp
 
-        plt.figure(figsize=(7,5))  # 📚 Reference: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html
+# Loop through each variable to create histograms
+for variable_name in variable_names:
+    values = variable_data.get(variable_name)  # Using .get() to access values
+    # 📚 https://www.geeksforgeeks.org/python-accessing-key-value-in-dictionary/
 
-        plt.scatter(x_variable, y_variable, color="red")   
-        # 📚 Reference: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html
+    plt.figure(figsize=(8, 6))  # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html
 
-        plt.title("Scatter plot of " + x_variable + " vs " + y_variable)  # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html
-        plt.xlabel(x_variable) # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html
-        plt.ylabel(y_variable) # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html
+    # Creating the histogram
+    sns.histplot(values, bins=20, kde=False, color="skyblue", edgecolor="black")  
+    # 📚 https://seaborn.pydata.org/generated/seaborn.histplot.html
 
-        filename = x_variable + "_vs_" + y_variable + "_scatter.png"  
-        plt.savefig(filename)  # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
+    plt.title(variable_name + " Distribution", fontsize=14)  # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html
+    plt.xlabel(variable_name, fontsize=12)  # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html
+    plt.ylabel("Frequency", fontsize=12)    # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html
+
+    plt.grid(True)  # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
+
+    filename = variable_name + "_histogram.png"
+    plt.savefig(filename)  # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
+
+    plt.close()  # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
+
+        
