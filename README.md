@@ -84,5 +84,5 @@ My output so far:
 
 💭 *Personal Notes on this part:*
 
-- I relied on online references abut also similar taskwork from Principles of Data Analytics module. Perhaps some of the solutions are not as pratical as they could be but it made me more comnfortable to use something that I used before, if that makes sense.
+- I relied on online references abut also similar taskwork from Principles of Data Analytics module. Perhaps some of the solutions are not as pratical as they could be but it made me more comnfortable to use something that I used before.
 

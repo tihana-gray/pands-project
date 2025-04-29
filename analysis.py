@@ -230,3 +230,30 @@ for item in iris_data:
 
     plt.close()   # 📚 Closing the figure to free up memory (CHECK THIS!!!!) → https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
 
+# 📚 Reference: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html
+
+# Trying to create scatter plots for each pair of variables
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# List of variable names
+variables = ["sepal_length", "sepal_width", "petal_length", "petal_width"]
+
+# Loop through pairs 
+for i in range(len(variables)): # https://www.w3schools.com/python/ref_func_range.asp
+    for j in range(i+1, len(variables)): # https://www.w3schools.com/python/gloss_python_for_nested.asp
+        x_variable = variable_names[i] # 📚 https://stackoverflow.com/questions/18648626/for-loop-with-two-variables
+        y_variable = variable_names[j]
+
+        plt.figure(figsize=(7,5))  # 📚 Reference: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html
+
+        plt.scatter(x_variable, y_variable, color="red")   
+        # 📚 Reference: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html
+
+        plt.title("Scatter plot of " + x_variable + " vs " + y_variable)  # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html
+        plt.xlabel(x_variable) # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html
+        plt.ylabel(y_variable) # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html
+
+        filename = x_variable + "_vs_" + y_variable + "_scatter.png"  
+        plt.savefig(filename)  # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
