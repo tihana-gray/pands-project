@@ -232,13 +232,16 @@ for item in iris_data:
 
 # 📚 Reference: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html
 
-# Trying to create scatter plots for each pair of variables
+
+# ------------------------------
+# Histograms for each pair of variables
+# ------------------------------
 
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# List of variable names
-variables = ["sepal_length", "sepal_width", "petal_length", "petal_width"]
+# Defining variable_names from the tuple structure used earlier
+variable_names = ["sepal_length", "sepal_width", "petal_length", "petal_width"]
 
 # Dictionary to hold the actual values for each variable
 variable_data = {
