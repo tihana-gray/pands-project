@@ -54,13 +54,18 @@ After downloading the files, I created a folder in my project called iris_data. 
 
 - https://graphite.dev/guides/how-to-push-code-from-vscode-to-github
 
-In the second part of this project the goal is on getting summary statistics for each of the four numeric measurements in the Iris dataset:
+---
+
+## 🔢 Part 3: Reading Data
+
+In the next part of this project the goal is on getting summary statistics for each of the four numeric measurements in the Iris dataset:
 
 - Sepal length
 - Sepal width
 - Petal length
 - Petal width
 
+I created a program called `analysis.py` which will be used for exploring the dataset.\
 At the beginning of my script, I imported three libraries: `os`, `numpy`, and `pandas`.
 - `os` is used to work with files and directories. This will be required for the later file handling and checking if a directory exists.
 - `numpy` is a library that helps with numerical operations, which will also be required in the analysis part.
