@@ -28,16 +28,37 @@ It is commonly used in tutorials for learning Python libraries such as NumPy, Pa
 
 ---
 
-## 🧮 Part 2: Generating Summary
+## 🔢 Part 2: Getting Data
 
-In the second part of this project I focused on getting summary statistics for each of the four numeric measurements in the Iris dataset:
+I downloaded the Iris dataset from the official UCI Machine Learning Repository at: https://archive.ics.uci.edu/dataset/53/iris
 
-Sepal length
-Sepal width
-Petal length
-Petal width
+I manually downloaded the iris.data file, along with the `iris.names` file (which contains summary descriptions of the columns and class labels), `iris.data` (which contains the full dataset with all 150 samples from the three species), `Index` file (showing the modificzation dates of the dataset) and `bezdekIris.data` (which also contains the full dataset with all 150 samples from the three species, named after one of the dataset researchers.)
 
-The goal was to understand the general shape of the data and prepare me for the next part where I output and categorise data per variable.
+**📚 References:**
+
+- https://archive.ics.uci.edu/dataset/53/iris
+- Bezdek, J., Keller, J., Krishnapuram, R., Kuncheva, L., & Pal, N. (1999). Will the real iris data please stand up? IEEE Transactions on Fuzzy Systems, 7(3), 368–369. https://doi.org/10.1109/91.771092\
+https://lucykuncheva.co.uk/papers/jbjkrklknptfs99.pdf
+
+In the second part of this project the goal is on getting summary statistics for each of the four numeric measurements in the Iris dataset:
+
+- Sepal length
+- Sepal width
+- Petal length
+- Petal width
+
+At the beginning of my script, I imported three libraries: `os`, `numpy`, and `pandas`.
+- `os` is used to work with files and directories. This will be required for the later file handling and checking if a directory exists.
+- `numpy` is a library that helps with numerical operations, which will also be required in the analysis part.
+- `pandas` is used for working with data. It stores data dataframes, which are easier than managing lots of lists separately.
+
+**📚 References:**
+
+- https://docs.python.org/3/library/os.html
+- https://numpy.org/doc/stable/
+- https://pandas.pydata.org/docs/
+
+---------------------------------------------------------------------------------
 
 1. *Reading the dataset*
 
