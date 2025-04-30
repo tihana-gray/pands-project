@@ -32,13 +32,27 @@ It is commonly used in tutorials for learning Python libraries such as NumPy, Pa
 
 I downloaded the Iris dataset from the official UCI Machine Learning Repository at: https://archive.ics.uci.edu/dataset/53/iris
 
-I manually downloaded the iris.data file, along with the `iris.names` file (which contains summary descriptions of the columns and class labels), `iris.data` (which contains the full dataset with all 150 samples from the three species), `Index` file (showing the modificzation dates of the dataset) and `bezdekIris.data` (which also contains the full dataset with all 150 samples from the three species, named after one of the dataset researchers.)
+I manually downloaded the iris.data file, along with the `iris.names` file (which contains summary descriptions of the columns and class labels), `iris.data` (which contains the full dataset with all 150 samples from the three species), `Index` file (showing the modification dates of the dataset) and `bezdekIris.data` (which also contains the full dataset with all 150 samples from the three species, named after one of the dataset researchers.)
 
 **📚 References:**
 
 - https://archive.ics.uci.edu/dataset/53/iris
-- Bezdek, J., Keller, J., Krishnapuram, R., Kuncheva, L., & Pal, N. (1999). Will the real iris data please stand up? IEEE Transactions on Fuzzy Systems, 7(3), 368–369. https://doi.org/10.1109/91.771092\
+- Bezdek, J., Keller, J., Krishnapuram, R., Kuncheva, L., & Pal, N. (1999). Will the real iris data please stand up? IEEE Transactions on Fuzzy Systems, 7(3), 368–369. https://doi.org/10.1109/91.771092 
 https://lucykuncheva.co.uk/papers/jbjkrklknptfs99.pdf
+
+
+After downloading the files, I created a folder in my project called iris_data. I placed all the downloaded files inside that folder. I keep the raw data separate from my Python scripts.
+
+*The process of uploading to Git repository:*
+
+- I used the following commands: 
+`git add iris_data/`
+`git commit -m "Added original Iris dataset files from UC Irvine`
+`Source: https://archive.ics.uci.edu/dataset/53/iris"`
+
+**📚 References:**
+
+- https://graphite.dev/guides/how-to-push-code-from-vscode-to-github
 
 In the second part of this project the goal is on getting summary statistics for each of the four numeric measurements in the Iris dataset:
 
