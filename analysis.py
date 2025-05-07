@@ -25,25 +25,27 @@ output_file = "variable_summary.txt" # Output file for summary statistics
 # -------------------------------
 
 # Each list holds one column of numeric data from the dataset
+# By creating separate lists it is easier to later calculate statistics for each variable
 sepal_lengths = []     
 sepal_widths = []      
 petal_lengths = []     
 petal_widths = []      
-
-# 📚 Reference: Python lists – https://docs.python.org/3/tutorial/datastructures.html#more-on-lists
-
+# 📚 Reference: Python lists – https://shorturl.at/4HNnR, https://shorturl.at/EWtiN
 
 
-if os.path.exists(filename):  # Checking if file exists before opening it
+if os.path.exists(filename):  # Checking if file exists before opening it  → 📚 https://shorturl.at/37VkW
 
     with open(filename, 'r') as file:  # Opens the file for reading → 📚 https://shorturl.at/6RZ23
-        for line in file:
+        # if `with` is used then the file is automatically closed after the block is executed and doesn't
+        # leave the file open, which avoids memory leaks.
+        for line in file: # this line starts a loop that reads each line of the file one by one
+            # each line represents one row of the dataset  → 📚 https://shorturl.at/EGDkb
             line = line.strip()  # Removes newline and whitespace 
-            # 📚 https://docs.python.org/3/library/stdtypes.html#str.strip
+            # 📚 https://shorturl.at/mt38Q
 
             if line:  # Skip blank lines
                 parts = line.split(',')  # Splitting each line by commas for better readability → 📚 https://shorturl.at/rGLK2
-                if len(parts) == 5:  # Making sure line has 5 values
+                if len(parts) == 5:  # Making sure line has 5 values → 📚 https://shorturl.at/FeTZ6
 
                     # Converting string values to floats and append to lists
                     sepal_lengths.append(float(parts[0])) 
@@ -52,14 +54,22 @@ if os.path.exists(filename):  # Checking if file exists before opening it
                     petal_widths.append(float(parts[3]))
                     # 📚 https://docs.python.org/3/library/functions.html#float
 
-# 📚 References:
-# - open(): https://docs.python.org/3/library/functions.html#open, https://www.w3schools.com/Python/ref_func_open.asp
+# 📚 Full references for this part:
+# - lists: https://www.w3schools.com/python/python_lists.asp
+# https://docs.python.org/3/tutorial/datastructures.html#more-on-lists
+# os.path.exists(): https://docs.python.org/3/library/os.path.html#os.path.exists
+# - open(): https://docs.python.org/3/library/functions.html#open
+# https://www.w3schools.com/Python/ref_func_open.asp
 # https://www.w3schools.com/python/python_file_open.asp
+# - for line in file: https://www.geeksforgeeks.org/read-a-file-line-by-line-in-python/
 # - split(): https://docs.python.org/3/library/stdtypes.html#str.split
-# - float(): https://docs.python.org/3/library/functions.html#float, https://www.w3schools.com/python/ref_func_float.asp
-# - line.strip(): https://docs.python.org/3/library/stdtypes.html#str.strip, https://www.w3schools.com/python/ref_string_strip.asp
-# - append(): https://docs.python.org/3/tutorial/datastructures.html#more-on-lists, https://www.w3schools.com/python/ref_list_append.asp,
-# https://www.geeksforgeeks.org/python-list-append-method/
+# - float(): https://docs.python.org/3/library/functions.html#float 
+# https://www.w3schools.com/python/ref_func_float.asp
+# - line.strip(): https://docs.python.org/3/library/stdtypes.html#str.strip 
+# https://www.w3schools.com/python/ref_string_strip.asp
+# - append(): https://docs.python.org/3/tutorial/datastructures.html#more-on-lists 
+# https://www.w3schools.com/python/ref_list_append.asp
+# https://www.geeksforgeeks.org/python-list-append-method
 
 
     df = pd.DataFrame({
