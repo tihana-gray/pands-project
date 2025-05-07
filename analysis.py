@@ -40,19 +40,25 @@ if os.path.exists(filename):  # Checking if file exists before opening it  → �
         # leave the file open, which avoids memory leaks.
         for line in file: # this line starts a loop that reads each line of the file one by one
             # each line represents one row of the dataset  → 📚 https://shorturl.at/EGDkb
-            line = line.strip()  # Removes newline and whitespace 
+            line = line.strip()  # Removes newline charecters and whitespace and avoids errors with string processing
             # 📚 https://shorturl.at/mt38Q
 
-            if line:  # Skip blank lines
+            if line:  # Skipping blank lines and empty rows → 📚 https://shorturl.at/r8jQ6
                 parts = line.split(',')  # Splitting each line by commas for better readability → 📚 https://shorturl.at/rGLK2
+                # each comma in the dataset separates values, so this creates a list of values for each line
                 if len(parts) == 5:  # Making sure line has 5 values → 📚 https://shorturl.at/FeTZ6
+                    # This is done because the dataset has 5 columns: 4 numeric and 1 string (species)
 
                     # Converting string values to floats and append to lists
+                    # Each line takes a string from the `parts` list and converts it to a float
+                    # and appends it to the corresponding list
+                    # The use of float() is important because the data is in string format
+                    # and we need to convert it to a number for calculations
                     sepal_lengths.append(float(parts[0])) 
                     sepal_widths.append(float(parts[1]))
                     petal_lengths.append(float(parts[2]))
                     petal_widths.append(float(parts[3]))
-                    # 📚 https://docs.python.org/3/library/functions.html#float
+                    # 📚 https://shorturl.at/2UfNJ
 
 # 📚 Full references for this part:
 # - lists: https://www.w3schools.com/python/python_lists.asp
@@ -62,11 +68,15 @@ if os.path.exists(filename):  # Checking if file exists before opening it  → �
 # https://www.w3schools.com/Python/ref_func_open.asp
 # https://www.w3schools.com/python/python_file_open.asp
 # - for line in file: https://www.geeksforgeeks.org/read-a-file-line-by-line-in-python/
-# - split(): https://docs.python.org/3/library/stdtypes.html#str.split
-# - float(): https://docs.python.org/3/library/functions.html#float 
-# https://www.w3schools.com/python/ref_func_float.asp
-# - line.strip(): https://docs.python.org/3/library/stdtypes.html#str.strip 
+# - line.strip(): https://docs.python.org/3/library/stdtypes.html#str.strip
 # https://www.w3schools.com/python/ref_string_strip.asp
+# - if line: https://stackoverflow.com/questions/40647881/skipping-blank-lines-in-read-file-python/40647977
+# - line.split(): https://docs.python.org/3/library/stdtypes.html#str.split
+# https://www.geeksforgeeks.org/python-string-split/
+# if len(parts): https://realpython.com/len-python-function/
+# https://realpython.com/python-lists-tuples/#measuring-the-length-of-a-list
+# - float(): https://docs.python.org/3/library/functions.html#float 
+# https://www.w3schools.com/python/ref_func_float.asptypes.html#str.strip 
 # - append(): https://docs.python.org/3/tutorial/datastructures.html#more-on-lists 
 # https://www.w3schools.com/python/ref_list_append.asp
 # https://www.geeksforgeeks.org/python-list-append-method
@@ -78,11 +88,25 @@ if os.path.exists(filename):  # Checking if file exists before opening it  → �
         "petal_length": petal_lengths,
         "petal_width": petal_widths
     })
-# 📚 Reference: https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
+# This part creates Pandas DataFrame from the lists above
+# Each list becomes a column in the DataFrame, with the column names being the keys in the dictionary
+# Each value in the list becomes a row in that column
+# 📚 Reference: https://shorturl.at/HZwa7
 
 else:
-    print(f"File not found: {filename}") # fixed to make a variable for the filename {} → 📚 https://rebrand.ly/66fbdc
-    exit() # 📚 https://rebrand.ly/84ba31
+    print(f"File not found: {filename}") # fixed to make a variable for the filename {} → 📚 https://shorturl.at/ruLrt
+    exit() # 📚 https://shorturl.at/MfjNr
+# This part runs if the file doesn't exist (the condition for `os.path.exists(filename)` failed).
+# It prints an error message and exits the program.
+
+# 📚 Full references for this part:
+# https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
+# https://www.w3schools.com/python/pandas/pandas_dataframes.asp
+# https://www.w3schools.com/python/ref_func_print.asp
+# https://realpython.com/pandas-dataframe/
+# https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings
+# https://docs.python.org/3/library/constants.html#exit
+# https://docs.python.org/3/library/sys.html#sys.exit
 
 
 # ----------------------------

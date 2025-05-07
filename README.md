@@ -19,7 +19,7 @@ Attribute information dataset is:
 The primary objective of examining this dataset frequently involves determining the species of a flower utilising the provided measurements. Due to its limited size, clarity, and ease of measurement, this dataset has gained popularity as an introductory resource for acquiring skills in data analysis, data visualization, and classification techniques within the Python programming environment.\
 It is commonly used in tutorials for learning Python libraries such as NumPy, Pandas, Matplotlib, and Scikit-learn. It’s also an excellent dataset to practice working with lists, loops, conditionals, and basic statistics.
 
-📚 References:
+**📚 References:**
 - https://archive.ics.uci.edu/dataset/53/iris
 - https://scikit-learn.org/1.4/auto_examples/datasets/plot_iris_dataset.html
 - https://www.kaggle.com/datasets/uciml/iris
@@ -79,16 +79,20 @@ At the beginning of my script, I imported three libraries: `os`, `numpy`, and `p
 
 ---------------------------------------------------------------------------------
 
-1. *Reading the dataset*
+1. **Reading the dataset**
 
-I created lists for each dataset. The function `open()` opens the file and reads it line by line. For each line:\
+To start working with the Iris dataset, it's necessary to read the values from the file and organise them into something that Python can use for calculations.\ 
+I created lists for each dataset. The plan was to go through the file line by line and split each row into separate values and then store it in the appropriate list.\
+The function `open()` opens the file and reads it line by line. For each line:\
+- I looped over each line in the file
 - Extra spaces and newlines are removed using `.strip()`
 - The values are split into separate pieces using `.split(',')`
 - The four numeric values are converted to floats and added to separate lists (one for each measurement).
 
-According to my research, by using this approach I can work with strings, create loops and `if` statements and grow lists (by using `.append()`). 
+The first four values on each line are numeric, so I converted them from strings to floats using the `float()` function. 
+Then, I used `.append()` to add each value to the correct list. These lists would later be used to create a DataFrame and calculate statistics like the mean, median, etc.
 
-📚 References (full list of refrences provided with the code):
+**📚 References (full list of refrences provided with the code):**
 - https://docs.python.org/3/tutorial/datastructures.html#more-on-lists
 - https://www.w3schools.com/python/python_file_open.asp
 - https://docs.python.org/3/library/stdtypes.html#str.strip
@@ -96,13 +100,20 @@ According to my research, by using this approach I can work with strings, create
 - https://docs.python.org/3/library/functions.html#float
 - https://www.w3schools.com/python/ref_list_append.asp
 
-2. *Creating DataFrame from the list*
+----------
 
-After file reading, the script uses `pd.DataFrame()` to turn the lists into a table format. I also gave each row a name by using a list of names. 
+2. **Creating DataFrame from the list**
 
-📚 References (full list of refrences provided with the code):
+After file reading, the script uses `pd.DataFrame()` to turn the lists into a table format. I also gave each row a name by using a list of names. Column names are `"sepal_length"`, `"sepal_width"`, `"petal_length"`, and `"petal_width"`.\
+Before creating the DataFrame, I included a check using `os.path.exists()` to see if the dataset file actually exists. If it doesn't, I an `else` part is used to print a message with the filename and stop the program using `exit()`. This is helpful when debugging because the program won’t crash later from trying to read a missing file, and it lets me know exactly what went wrong.
+
+**📚 References (full list of refrences provided with the code):**
+- https://docs.python.org/3/library/os.path.html#os.path.exists
 - https://www.w3schools.com/python/pandas/pandas_dataframes.asp
 - https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
+- https://docs.python.org/3/library/sys.html#sys.exit
+
+----------
 
 3. *Calculations*
 
