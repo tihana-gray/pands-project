@@ -1,0 +1,6 @@
+petal_length summary:
+Mean: 3.76
+Min: 1.0
+Max: 6.9
+Std: 1.76
+Median: 4.35
