@@ -1,6 +1,0 @@
-sepal_length summary:
-Mean: 5.84
-Min: 4.3
-Max: 7.9
-Std: 0.83
-Median: 5.8

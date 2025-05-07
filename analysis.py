@@ -1,6 +1,6 @@
 # Iris Dataset Analysis
 
-# First stage of the project: Data Analysis
+# First stage of the project: Data Analysis and Text File Outputs
 
 # ------------------------------
 # Importing necessary libraries
@@ -86,7 +86,6 @@ if os.path.exists(filename):  # Checking if file exists before opening it  → �
 # Creating DataFrame
 # -------------------------------
 
-
     df = pd.DataFrame({
         "sepal_length": sepal_lengths,
         "sepal_width": sepal_widths,
@@ -165,10 +164,10 @@ summary.to_csv("summary.txt", sep='\t')
 # Outputting a summary of each variable to a single text file
 # ------------------------------------------------------------
 
-# This tuple below groups together the name of each variable with its list of values.
+# This tuple groups together the name of each variable with its list of values.
 # Each item is a pair: ("variable name", list_of_values)
 # Tuples are useful when I want to keep related things together and loop through them.
-# 📚 Reference: https://www.w3schools.com/python/python_tuples.asp
+# 📚 Reference: https://shorturl.at/jxSzv
 
 iris_data = (
     ("sepal_length", sepal_lengths),
@@ -180,38 +179,59 @@ iris_data = (
 # Looping through each variable one by one
 for item in iris_data:
     name = item[0]       # The name of the variable, like "sepal_length"
-    values = item[1]     # The actual list of numbers for that variable
+    values = item[1]     # The actual list of float values for that variable
+    # 📚 Reference: https://shorturl.at/LFo0l
 
-    # Now I calculate some basic statistics using NumPy
-    mean_val = np.mean(values)      # 📚 https://www.geeksforgeeks.org/numpy-mean-in-python/
-    min_val = min(values)           # 📚 https://www.geeksforgeeks.org/use-of-min-and-max-in-python/
-    max_val = max(values)           # 📚 https://www.geeksforgeeks.org/use-of-min-and-max-in-python/
-    std_val = np.std(values)        # 📚 https://numpy.org/doc/stable/reference/generated/numpy.std.html
-    median_val = np.median(values)  # 📚 https://www.geeksforgeeks.org/numpy-median-in-python/
+    # Calculating statistics using NumPy
+    mean_val = np.mean(values)      # average value → 📚 https://shorturl.at/Mjww6
+    min_val = min(values)           # smallest value in the list → 📚 https://shorturl.at/HVPi4
+    max_val = max(values)           # largest value in the list → 📚 https://shorturl.at/HVPi4
+    std_val = np.std(values)        # standard deviation → 📚 https://shorturl.at/FR0wI
+    median_val = np.median(values)  # middle value → 📚 https://shorturl.at/wRvLd
 
-    # Now making a file just for this variable (e.g. "sepal_length.txt") → 📚 https://shorturl.at/DhS7F
-    file_name = name + ".txt"  # Just adding ".txt" to the name to create text file 
-
-    # Open the file in write mode ("w" = create or overwrite the file)
-    f = open(file_name, "w")  # 📚 https://www.w3schools.com/python/ref_func_open.asp
-
+    # Using a fixed filename template based on the variable name → 📚 https://shorturl.at/giP1G
+    if name == "sepal_length":
+        f = open("sepal_length.txt", "x")
+    elif name == "sepal_width":
+        f = open("sepal_width.txt", "x")
+    elif name == "petal_length":
+        f = open("petal_length.txt", "x")
+    elif name == "petal_width":
+        f = open("petal_width.txt", "x")
+    # Each variable matches the correct filename. If the variable name is "sepal_length", it opens "sepal_length.txt" for writing.
+    # Else if it's "sepal_width", it opens "sepal_width.txt", and so on.
+    # This way avoids errors with file names and makes it easier to manage the output files (creating conditions for each file name).
+    # 📚 https://shorturl.at/cSxLk
+    
     # Writing each stat to the file. 
-    f.write(name + " summary:\n")
-    f.write("Mean: " + str(round(mean_val, 2)) + "\n")    # Rounding numbers: 📚 https://www.w3schools.com/python/ref_func_round.asp
+    f.write(name + " summary:\n")                         
+    # Writing the variable name as a header (joining variable name with string (summary)) → 📚 https://shorturl.at/95OZd
+    f.write("Mean: " + str(round(mean_val, 2)) + "\n")    # Rounding numbers: 📚 https://shorturl.at/GXj8q
     f.write("Min: " + str(round(min_val, 2)) + "\n")      # Newline characters: 📚 https://shorturl.at/uKg9V
-    f.write("Max: " + str(round(max_val, 2)) + "\n")      # Converting values into strings: 📚 https://www.w3schools.com/python/ref_func_str.asp
-    f.write("Std: " + str(round(std_val, 2)) + "\n")      # Adding text: 📚 https://www.w3schools.com/python/ref_file_write.asp
+    f.write("Max: " + str(round(max_val, 2)) + "\n")      # Converting values into strings: 📚 https://shorturl.at/bQb1p
+    f.write("Std: " + str(round(std_val, 2)) + "\n")      # Adding text: 📚 https://shorturl.at/KUlpf
     f.write("Median: " + str(round(median_val, 2)) + "\n")
 
     f.close()  # Closing the file when done writing
-    # 📚 File closing info: https://www.w3schools.com/python/ref_file_close.asp
+    # 📚 https://www.w3schools.com/python/ref_file_close.asp
 
-    # Re-opening the file in read mode to check if the output worked (this part is optional)
-    f = open(file_name, "r")       # "r" = read-only mode
+    # Re-opening the file in read mode to print the contents
+    # This is done to check if the file was written correctly
+    # The file is opened in read mode ("r") to read the contents after writing
+    # 📚 https://www.w3schools.com/python/python_conditions.asp
+    if name == "sepal_length":
+        f = open("sepal_length.txt", "r")
+    elif name == "sepal_width":
+        f = open("sepal_width.txt", "r")
+    elif name == "petal_length":
+        f = open("petal_length.txt", "r")
+    elif name == "petal_width":
+        f = open("petal_width.txt", "r")
+    # 📚 https://shorturl.at/g4Ccu
     print(f.read())                # This prints the contents of the file in the terminal
-    f.close()                      # Closing it again after reading
+    f.close()                      # Closing it again after reading  
 
-# 📚 References:
+# 📚 Full references for this part:
 # https://www.w3schools.com/python/python_tuples.asp
 # https://www.w3schools.com/python/python_for_loops.asp
 # https://realpython.com/python-for-loop/
@@ -220,14 +240,22 @@ for item in iris_data:
 # https://www.geeksforgeeks.org/numpy-std-in-python/
 # https://numpy.org/doc/stable/reference/generated/numpy.std.html
 # https://www.geeksforgeeks.org/numpy-median-in-python/
-# https://superuser.com/questions/940463/file-names-starting-with-a-string-in-the-format-of-txt-give-error-in-for
 # https://www.w3schools.com/python/ref_func_open.asp
+# https://www.w3schools.com/python/python_conditions.asp
+# https://superuser.com/questions/940463/file-names-starting-with-a-string-in-the-format-of-txt-give-error-in-for
 # https://www.w3schools.com/python/python_strings_methods.asp
 # https://stackoverflow.com/questions/60885439/how-the-n-symbol-works-in-python
+# https://www.geeksforgeeks.org/python-new-line-add-print-a-new-line/
+# https://www.w3schools.com/python/gloss_python_string_concatenation.asp
 # https://www.w3schools.com/python/ref_func_round.asp
 # https://www.w3schools.com/python/ref_func_str.asp
+# https://realpython.com/if-name-main-python/
 # https://www.w3schools.com/python/ref_file_write.asp
 # https://www.w3schools.com/python/ref_file_close.asp
+
+
+# ------------------------------------------------------------
+## Second stage of the project: Histograms and Scatter Plots
 
 
 # ------------------------------

@@ -1,6 +1,0 @@
-petal_width summary:
-Mean: 1.2
-Min: 0.1
-Max: 2.5
-Std: 0.76
-Median: 1.3

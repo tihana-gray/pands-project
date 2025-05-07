@@ -1,6 +1,0 @@
-sepal_width summary:
-Mean: 3.05
-Min: 2.0
-Max: 4.4
-Std: 0.43
-Median: 3.0
