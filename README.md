@@ -122,7 +122,8 @@ My output so far:
 ![Output](<Part 1 output.png>)
 
 
-💭 *Personal Notes on this part:*
+## 💭 *Personal Notes on this part:*
 
 - I relied on online references abut also similar taskwork from Principles of Data Analytics module. Perhaps some of the solutions are not as pratical as they could be but it made me more comnfortable to use something that I used before.
+- My studying approach during this part (and for previous module tasks) was to explore the code in the Notepad++ by using online references and examples and trying to replicate them to fit the task. Afterwards, I'd run the code in the VS Code and focus on errors, try different code versions and run the program again. However, this approach does not show detailed steps in GitHub so going forward I will save every step of the progress/testing in the repository.
 
