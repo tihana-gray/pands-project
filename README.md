@@ -104,8 +104,8 @@ Then, I used `.append()` to add each value to the correct list. These lists woul
 
 2. **Creating DataFrame from the list**
 
-After file reading, the script uses `pd.DataFrame()` to turn the lists into a table format. I also gave each row a name by using a list of names. Column names are `"sepal_length"`, `"sepal_width"`, `"petal_length"`, and `"petal_width"`.\
-Before creating the DataFrame, I included a check using `os.path.exists()` to see if the dataset file actually exists. If it doesn't, I an `else` part is used to print a message with the filename and stop the program using `exit()`. This is helpful when debugging because the program won’t crash later from trying to read a missing file, and it lets me know exactly what went wrong.
+After file reading, the script uses `pd.DataFrame()` to turn the lists into a table format. I also gave each row a name by using a list of names. Column names are `"sepal_length"`, `"sepal_width"`, `"petal_length"`, and `"petal_width"`.
+Before creating the DataFrame, I included a check using `os.path.exists()` to see if the dataset file actually exists. If it doesn't, an `else` part is used to print a message with the filename and stop the program using `exit()`. This is helpful when debugging because the program won’t crash later from trying to read a missing file, and it lets me know exactly what went wrong.
 
 **📚 References (full list of refrences provided with the code):**
 - https://docs.python.org/3/library/os.path.html#os.path.exists
@@ -115,26 +115,27 @@ Before creating the DataFrame, I included a check using `os.path.exists()` to se
 
 ----------
 
-3. *Calculations*
+3. **Calculations**
 
-In the next step, by using `.describe().T`, the script calculates:
-- Mean (average)
-- Minimum and maximum
-- Standard deviation
-- Count (how many samples)
+In this part, the script calculates summary statistics for each of the four numeric variables using the `.describe()` method in Pandas. This provides statistical measures such as count, mean, standard deviation, min, max, and percentiles (25%, 50%, and 75%). To make the output easier to read, `.T` is used to transpose the table so that each variable becomes a row and each statistical measure becomes a column.
 
-Because `.describe()` includes the median as the "50%", it was added again under the label "median" to make the output better to read.
+Since `.describe()` does not label the median explicitly, the script uses Pandas `.median()` method to calculate and add a new column named `"median"` to the summary table. This step ensures the median is clearly identified and consistently formatted.
+
+To keep the summary consistent, only the columns `"mean"`, `"min"`, `"max"`, `"std"`, and `"median"` are retained using the `.filter(items=[...])` method. This makes the filter applied to the labels of the index.
+
+The rows are sorted alphabetically using `.sort_index()` and the table is printed to the terminal and saved to a file called `summary.txt` in tab-separated format using `.to_csv()`.
 
 📚 References (full list of refrences provided with the code):
-- https://pandas.pydata.org/pandas-docs/version/0.25.0/reference/api/pandas.DataFrame.T.html
 - https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.describe.html
-
-My output so far:
-![Output](<Part 1 output.png>)
+- https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.T.html
+- https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.median.html
+- https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.filter.html
+- https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_index.html
+- https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html
 
 
 ## 💭 *Personal Notes on this part:*
 
-- I relied on online references abut also similar taskwork from Principles of Data Analytics module. Perhaps some of the solutions are not as pratical as they could be but it made me more comnfortable to use something that I used before.
-- My studying approach during this part (and for previous module tasks) was to explore the code in the Notepad++ by using online references and examples and trying to replicate them to fit the task. Afterwards, I'd run the code in the VS Code and focus on errors, try different code versions and run the program again. However, this approach does not show detailed steps in GitHub so going forward I will save every step of the progress/testing in the repository.
+- I relied on online references used for similar taskwork from Principles of Data Analytics module. Perhaps some of the solutions are not as pratical as they could be but it made me more comnfortable to use something that I used before (and explore it in more detail/repurpose it).
+- My studying approach during this part and for text file/histogram part (and for previous module tasks) was to explore the code in the Notepad++ by using online references and examples and trying to replicate them to fit the task. Afterwards, I'd run the code in the VS Code and focus on errors, try different code versions and run the program again. However, this approach does not show detailed steps in GitHub so going forward I will save every step of the progress/testing in the repository.
 

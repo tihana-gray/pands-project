@@ -82,6 +82,11 @@ if os.path.exists(filename):  # Checking if file exists before opening it  → �
 # https://www.geeksforgeeks.org/python-list-append-method
 
 
+# -------------------------------
+# Creating DataFrame
+# -------------------------------
+
+
     df = pd.DataFrame({
         "sepal_length": sepal_lengths,
         "sepal_width": sepal_widths,
@@ -115,42 +120,45 @@ else:
 
 # Computing summary statistics for numerical columns only (excluding 'species')
 # `.describe()` returns count, mean, std, min, 25%, 50%, 75%, max
-# `.T` transposes the output so rows are variables and columns are stats
-summary = df.describe().T
+# `.T` transposes the output so rows are variables and columns are stats (rows become columns and vice versa)
+# Makes it easier to read, especially for large datasets
+summary = df.describe().T # 📚 https://shorturl.at/44ABW
 
-# 📚 References:
-# https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.describe.html
-# https://pandas.pydata.org/pandas-docs/version/0.25.0/reference/api/pandas.DataFrame.T.html
+# Adding the median separately (because `describe()` doesn't include median by default)
+# `select_dtypes()` filters the DataFrame to include only numeric columns
+summary["median"] = df.select_dtypes(include=['number']).median() # 📚 https://shorturl.at/HhouQ
 
-# Adding the median separately (because `describe()` doesn't include median)
-# `select_dtypes()` helps isolate numerical columns only
-summary["median"] = df.select_dtypes(include=['number']).median() # 📚 https://shorturl.at/TJzuT
-
-# 📚 Reference:
-# https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.select_dtypes.html
-
-# Filtering only the columns we care about: mean, min, max, std, median
-summary = summary[["mean", "min", "max", "std", "median"]]
+# Keeping only selected statistics that are needed for the summary.
+summary = summary.filter(items=["mean", "min", "max", "std", "median"])
+# 📚 https://shorturl.at/lbo5h
 
 # Sorting rows alphabetically by feature name
 summary = summary.sort_index()
-
-# 📚 Reference:
-# https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_index.html
+# 📚 https://shorturl.at/2DWPz
 
 # Printing the summary to console
 print(summary)
 
 # Saving to text file
 summary.to_csv("summary.txt", sep='\t')
+# 📚 https://shorturl.at/a4BtT
 
-# 📚 Reference:
-# - https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html
-# - else: https://www.w3schools.com/python/python_conditions.asp, https://www.geeksforgeeks.org/python-if-else/
-# - min()/max(): https://docs.python.org/3/library/functions.html#min, https://www.geeksforgeeks.org/max-min-python/,
-# - https://www.geeksforgeeks.org/use-of-min-and-max-in-python/
-# - https://realpython.com/python-min-and-max/#:~:text=Python%20uses%20these%20code%20points,min()%20and%20max()%20.&text=To%20find%20the%20smallest%20or,code%20points%20of%20initial%20characters.
-# - numpy.mean(): https://numpy.org/doc/2.2/reference/generated/numpy.mean.html, https://www.geeksforgeeks.org/numpy-mean-in-python/
+# 📚 Full references for this part:
+# https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.describe.html
+# https://pandas.pydata.org/pandas-docs/version/0.25.0/reference/api/pandas.DataFrame.T.html
+# https://www.geeksforgeeks.org/pandas-dataframe-t-function-in-python/
+# https://stackoverflow.com/questions/54734957/difference-between-transpose-and-t-in-pandas
+# https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.select_dtypes.html
+# https://www.w3schools.com/python/pandas/ref_df_select_dtypes.asp
+# https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.median.html
+# https://www.w3schools.com/python/ref_stat_median.asp#:~:text=median()%20method%20calculates%20the,in%20a%20set%20of%20data.
+# https://www.geeksforgeeks.org/select-rows-columns-by-name-or-index-in-pandas-dataframe-using-loc-iloc/
+# https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_index.html
+# https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_index.html
+# https://realpython.com/pandas-sort-python/
+# https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html
+# https://www.geeksforgeeks.org/python-sep-parameter-print/
+# https://stackoverflow.com/questions/22116482/what-does-print-sep-t-mean
 
 
 # ------------------------------------------------------------
