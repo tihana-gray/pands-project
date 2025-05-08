@@ -213,12 +213,12 @@ for item in iris_data:
     f.write("Median: " + str(round(median_val, 2)) + "\n")
 
     f.close()  # Closing the file when done writing
-    # 📚 https://www.w3schools.com/python/ref_file_close.asp
+    # 📚 https://shorturl.at/FXv7x
 
     # Re-opening the file in read mode to print the contents
     # This is done to check if the file was written correctly
     # The file is opened in read mode ("r") to read the contents after writing
-    # 📚 https://www.w3schools.com/python/python_conditions.asp
+    # 📚 https://shorturl.at/BJ5M0
     if name == "sepal_length":
         f = open("sepal_length.txt", "r")
     elif name == "sepal_width":

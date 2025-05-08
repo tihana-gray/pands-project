@@ -1,5 +1,7 @@
 # Programming and Scripting Project
 
+----------------------------------------------------------------------------------------------------------------------
+
 ## 🌸 Part 1: About the Iris Dataset
 
 The Iris dataset, introduced by British statistician Ronald A. Fisher in a 1936 research publication, stands as one of the most extensively utilised datasets within the domains of data science and machine learning.
@@ -26,7 +28,7 @@ It is commonly used in tutorials for learning Python libraries such as NumPy, Pa
 - https://www.geeksforgeeks.org/iris-dataset/
 - https://www.geeksforgeeks.org/exploratory-data-analysis-on-iris-dataset/
 
----
+----------------------------------------------------------------------------------------------------------------------
 
 ## 🔢 Part 2: Getting Data
 
@@ -54,7 +56,7 @@ After downloading the files, I created a folder in my project called iris_data. 
 
 - https://graphite.dev/guides/how-to-push-code-from-vscode-to-github
 
----
+----------------------------------------------------------------------------------------------------------------------
 
 ## 🔢 Part 3: Reading Data
 
@@ -77,7 +79,7 @@ At the beginning of my script, I imported three libraries: `os`, `numpy`, and `p
 - https://numpy.org/doc/stable/
 - https://pandas.pydata.org/docs/
 
----------------------------------------------------------------------------------
+----------
 
 1. **Reading the dataset**
 
@@ -125,7 +127,7 @@ To keep the summary consistent, only the columns `"mean"`, `"min"`, `"max"`, `"s
 
 The rows are sorted alphabetically using `.sort_index()` and the table is printed to the terminal and saved to a file called `summary.txt` in tab-separated format using `.to_csv()`.
 
-📚 References (full list of refrences provided with the code):
+**📚 References (full list of refrences provided with the code):**
 - https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.describe.html
 - https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.T.html
 - https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.median.html
@@ -138,4 +140,49 @@ The rows are sorted alphabetically using `.sort_index()` and the table is printe
 
 - I relied on online references used for similar taskwork from Principles of Data Analytics module. Perhaps some of the solutions are not as pratical as they could be but it made me more comnfortable to use something that I used before (and explore it in more detail/repurpose it).
 - My studying approach during this part and for text file/histogram part (and for previous module tasks) was to explore the code in the Notepad++ by using online references and examples and trying to replicate them to fit the task. Afterwards, I'd run the code in the VS Code and focus on errors, try different code versions and run the program again. However, this approach does not show detailed steps in GitHub so going forward I will save every step of the progress/testing in the repository.
+
+----------------------------------------------------------------------------------------------------------------------
+
+## 🔢 Part 4: Variable summaries to text files
+
+In this section, the script generates individual text files for each of the four numeric variables in the Iris dataset: `sepal_length`, `sepal_width`, `petal_length`, and `petal_width`.
+
+*The code performs the following steps:*
+
+It first groups the variable names and their corresponding lists of values into a tuple of pairs. This makes the script to loop through each variable in a structured way.
+
+Inside the loop, the following statistics are calculated with NumPy for each variable:
+- Mean (average)
+- Minimum and maximum
+- Standard deviation (how spread out the values are)
+- Median (middle value in the sorted list)
+
+The script then uses `if-elif` conditions to match each variable name to a specific filename (e.g. `"sepal_length.txt"`) and opens that file in write mode (`"w"`).
+
+Each statistic is written to the file using `f.write()`. Values are rounded to two decimal places for readability, and each statistic is labeled.
+
+After writing, the file is closed using `f.close()` and then reopened in read mode `("r")` to print its contents to the terminal.
+
+**📚 References (full list of refrences provided with the code):**
+- https://www.w3schools.com/python/python_tuples.asp
+- https://www.w3schools.com/python/python_for_loops.asp
+- https://www.geeksforgeeks.org/numpy-mean-in-python/
+- https://www.geeksforgeeks.org/use-of-min-and-max-in-python/
+- https://numpy.org/doc/stable/reference/generated/numpy.std.html
+- https://www.geeksforgeeks.org/numpy-median-in-python/
+- https://www.w3schools.com/python/ref_func_open.asp
+- https://www.w3schools.com/python/python_conditions.asp
+- https://www.w3schools.com/python/gloss_python_string_concatenation.asp
+- https://www.w3schools.com/python/ref_func_round.asp
+- https://stackoverflow.com/questions/60885439/how-the-n-symbol-works-in-python
+- https://www.w3schools.com/python/ref_func_str.asp
+- https://www.w3schools.com/python/ref_file_write.asp
+- https://www.w3schools.com/python/ref_file_close.asp
+
+
+## 💭 *Personal Notes on this part:*
+
+- I decided to adjust the code, after speaking to some of the collegaues because the previous solution seemed prone to errors. There was a bit of an issue with figuring out how to reopen filles after writing and wheter to use `x` or `w` mode.
+- Another issue was managing the structure and logic of the code when working with multiple related files.
+- I also struggled arround `NameError` after I updated the name variable in one place and couldn't find where it was actually used and where it needs to be updated.
 
