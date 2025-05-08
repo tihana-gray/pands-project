@@ -18,7 +18,7 @@ import pandas as pd                 # Used for data manipulation and analysis
 
 # Defining file paths and variables
 filename = "iris_data/iris.data"    # Path to the raw data file
-output_file = "variable_summary.txt" # Output file for summary statistics
+output_file = "summary.txt" # Output file for summary statistics
 
 # -------------------------------
 # Reading the data from the file
@@ -139,7 +139,7 @@ summary = summary.sort_index()
 print(summary)
 
 # Saving to text file
-summary.to_csv("summary.txt", sep='\t')
+summary.to_csv(output_file, sep='\t')
 # 📚 https://shorturl.at/a4BtT
 
 # 📚 Full references for this part:
