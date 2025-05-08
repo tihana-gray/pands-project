@@ -191,13 +191,13 @@ for item in iris_data:
 
     # Using a fixed filename template based on the variable name → 📚 https://shorturl.at/giP1G
     if name == "sepal_length":
-        f = open("sepal_length.txt", "x")
+        f = open("sepal_length.txt", "w")
     elif name == "sepal_width":
-        f = open("sepal_width.txt", "x")
+        f = open("sepal_width.txt", "w")
     elif name == "petal_length":
-        f = open("petal_length.txt", "x")
+        f = open("petal_length.txt", "w")
     elif name == "petal_width":
-        f = open("petal_width.txt", "x")
+        f = open("petal_width.txt", "w")
     # Each variable matches the correct filename. If the variable name is "sepal_length", it opens "sepal_length.txt" for writing.
     # Else if it's "sepal_width", it opens "sepal_width.txt", and so on.
     # This way avoids errors with file names and makes it easier to manage the output files (creating conditions for each file name).
@@ -298,7 +298,7 @@ for item in iris_data:
     file_name = name + "_histogram.png"     # Make the file name
     plt.savefig(file_name)                  # 📚 Save the figure as a PNG file → https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
 
-    plt.close()   # 📚 Closing the figure to free up memory (CHECK THIS!!!!) → https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
+    plt.close()   # 📚 Closing the figure to free up memory → https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
 
 # 📚 Reference: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html
 
@@ -306,9 +306,6 @@ for item in iris_data:
 # ------------------------------
 # Histograms for each pair of variables
 # ------------------------------
-
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 # Defining variable_names from the tuple structure used earlier
 variable_names = ["sepal_length", "sepal_width", "petal_length", "petal_width"]
