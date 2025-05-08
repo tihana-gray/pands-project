@@ -259,86 +259,76 @@ for item in iris_data:
 
 
 # ------------------------------
-# Importing necessary libraries
+# Histograms for each variable
 # ------------------------------
 
-import matplotlib.pyplot as plt   # 📚 Matplotlib used for basic plotting → https://matplotlib.org/stable/users/index.html
-import seaborn as sns             # 📚 Seaborn used for better-looking graphs → https://seaborn.pydata.org/
+import matplotlib.pyplot as plt   # Matplotlib used for basic plotting → 📚 https://shorturl.at/mhXsu
+import seaborn as sns             # Seaborn used for better-looking graphs → 📚 https://shorturl.at/gdwIh
 
 # Looping through each variable from iris_data tuple
 for item in iris_data:
     name = item[0]     # The name of the variable (like "sepal_length")
     values = item[1]   # The actual list of values for that variable
+    # 📚 https://shorturl.at/DqI8r
 
-    # ------------------------------
     # Creating the plot
-    # ------------------------------
-
-    plt.figure(figsize=(8, 6))    # 📚 Creates a new figure → https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html
+    plt.figure(figsize=(8, 6))    # Creates a new figure → 📚 https://shorturl.at/XglPk
     sns.histplot(values, bins=20, kde=False, color="skyblue", edgecolor="black")  
-    # 📚 Seaborn histplot → https://seaborn.pydata.org/generated/seaborn.histplot.html
-    # - bins=20 makes 20 bars
-    # - kde=False removes the smooth curve (only bars)
-    # - color and edgecolor make it nicer looking
+    # Seaborn histplot → 📚 https://shorturl.at/O42jO
+    # bins=20 makes 20 bars
+    # kde=False removes the smooth curve (only bars) → 📚 https://shorturl.at/RiR8J
+    # color and edgecolor make it nicer looking
 
-    # ------------------------------
     # Adding titles and labels
-    # ------------------------------
+    plt.title(name + " Distribution", fontsize=14)    # Adding title → 📚 https://shorturl.at/V15tr
+    plt.xlabel(name, fontsize=12)                     # X-axis label → 📚 https://shorturl.at/IgcT0
+    plt.ylabel("Frequency", fontsize=12)              # Y-axis label → 📚 https://shorturl.at/OE038
 
-    plt.title(name + " Distribution", fontsize=14)    # 📚 Add title → https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html
-    plt.xlabel(name, fontsize=12)                     # 📚 X-axis label → https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html
-    plt.ylabel("Frequency", fontsize=12)              # 📚 Y-axis label → https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html
-
-    plt.grid(True)  # 📚 Adding grid lines to the plot to make it easier to read → https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
-
-    # ------------------------------
+    plt.grid(True)  # Adding grid lines to the plot to make it easier to read → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
+   
     # Saving the plot
-    # ------------------------------
+    file_name = name + "_histogram.png"     # Making the file name
+    plt.savefig(file_name)                  # Saving the figure as a PNG file → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
 
-    file_name = name + "_histogram.png"     # Make the file name
-    plt.savefig(file_name)                  # 📚 Save the figure as a PNG file → https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
+    plt.close()   # Closing the figure to free up memory → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
 
-    plt.close()   # 📚 Closing the figure to free up memory → https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
+# 📚 Full references for this part:
+# https://matplotlib.org/stable/users/index.html
+# https://seaborn.pydata.org/
+# https://seaborn.pydata.org/generated/seaborn.histplot.html
+# https://stackoverflow.com/questions/10867882/how-are-tuples-unpacked-in-for-loops
+# https://www.geeksforgeeks.org/seaborn-distribution-plots/?ref=oin_asr2
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
+# https://stackoverflow.com/questions/72057721/adding-a-black-edgecolor-around-to-legend-entries-in-matplotlib
+# ttps://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
 
-# 📚 Reference: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html
 
 
-# ------------------------------
-# Histograms for each pair of variables
-# ------------------------------
 
-# Defining variable_names from the tuple structure used earlier
-variable_names = ["sepal_length", "sepal_width", "petal_length", "petal_width"]
 
-# Dictionary to hold the actual values for each variable
-variable_data = {
-    "sepal_length": sepal_lengths,
-    "sepal_width": sepal_widths,
-    "petal_length": petal_lengths,
-    "petal_width": petal_widths
-}
-# 📚 Reference: https://www.w3schools.com/python/python_dictionaries.asp
 
-# Loop through each variable to create histograms
-for variable_name in variable_names:
-    values = variable_data.get(variable_name)  # Using .get() to access values
-    # 📚 https://www.geeksforgeeks.org/python-accessing-key-value-in-dictionary/
 
-    plt.figure(figsize=(8, 6))  # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html
 
-    # Creating the histogram
-    sns.histplot(values, bins=20, kde=False, color="skyblue", edgecolor="black")  
-    # 📚 https://seaborn.pydata.org/generated/seaborn.histplot.html
 
-    plt.title(variable_name + " Distribution", fontsize=14)  # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html
-    plt.xlabel(variable_name, fontsize=12)  # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html
-    plt.ylabel("Frequency", fontsize=12)    # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html
 
-    plt.grid(True)  # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
 
-    filename = variable_name + "_histogram.png"
-    plt.savefig(filename)  # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
 
-    plt.close()  # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
 
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
