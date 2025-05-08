@@ -305,7 +305,7 @@ for item in iris_data:
 # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
 # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
 # https://stackoverflow.com/questions/72057721/adding-a-black-edgecolor-around-to-legend-entries-in-matplotlib
-# ttps://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
 
 
 
