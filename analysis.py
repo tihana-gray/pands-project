@@ -324,6 +324,9 @@ import seaborn as sns             # 📚 https://seaborn.pydata.org/
 # Example check — confirming df is defined → 📚 https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.columns.html
 print(df.columns)
 
+# ------------------------------
+# First pair of variables: Sepal Length vs Petal Length
+
 # Selecting two numerical variables from the DataFrame to compare
 x_feature = "sepal_length"  # Will be plotted on the x-axis
 y_feature = "petal_length"  # Will be plotted on the y-axis
@@ -352,7 +355,7 @@ plt.grid(True)  # Adds grid lines to improve readability → 📚 https://matplo
 corr = df[[x_feature, y_feature]].corr().iloc[0, 1]
 
 # Subtitle → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.suptitle.html
-plt.suptitle(f"Correlation: {corr:.2f}", fontsize=10, y=0.94, color='darkgray')
+plt.suptitle(f"Correlation: {corr:.2f}", fontsize=10, y=0.94, color='dimgray')
 
 # Legend → 📚 https://www.geeksforgeeks.org/matplotlib-pyplot-legend-in-python/
 plt.legend(title="Species")
@@ -361,6 +364,43 @@ plt.legend(title="Species")
 # The file name is set to "sepal_vs_petal_length_scatterplot.png"
 plt.savefig("sepal_vs_petal_length_scatterplot.png")  # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
 plt.close()  # Close the figure after saving → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
+
+
+# ------------------------------
+# Second pair of variables: Sepal Length vs Petal Width
+
+# (this code and the following variables repeat the same process as above)
+
+x_feature = "sepal_length"
+y_feature = "petal_width"
+
+plt.figure(figsize=(8, 6))
+
+sns.scatterplot(
+    x=df[x_feature],         
+    y=df[y_feature],
+    hue=df["species"],       
+    palette="icefire",      
+    s=80,                    
+    edgecolor="black",       
+    alpha=0.8                
+)
+
+plt.xlabel("Sepal Length")         
+plt.ylabel("Petal Width")          
+plt.title("Sepal Length vs Petal Width")
+
+plt.grid(True)
+
+corr = df[[x_feature, y_feature]].corr().iloc[0, 1]
+
+plt.suptitle(f"Correlation: {corr:.2f}", fontsize=10, y=0.94, color='dimgray')
+
+plt.legend(title="Species")
+
+plt.savefig("sepal_vs_petal_width_scatterplot.png")
+
+plt.close()
 
 
 # 📚 Full references for this part:
@@ -388,6 +428,8 @@ plt.close()  # Close the figure after saving → 📚 https://matplotlib.org/sta
 # mhttps://www.geeksforgeeks.org/matplotlib-pyplot-savefig-in-python/
 # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
 # https://seaborn.pydata.org/tutorial/color_palettes.html
+# https://matplotlib.org/stable/gallery/color/named_colors.html
+
 
 
 
