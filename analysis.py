@@ -29,7 +29,8 @@ output_file = "summary.txt" # Output file for summary statistics
 sepal_lengths = []     
 sepal_widths = []      
 petal_lengths = []     
-petal_widths = []      
+petal_widths = []
+species = []          # This list holds the species names (string values)      
 # 📚 Reference: Python lists – https://shorturl.at/4HNnR, https://shorturl.at/EWtiN
 
 
@@ -58,7 +59,10 @@ if os.path.exists(filename):  # Checking if file exists before opening it  → �
                     sepal_widths.append(float(parts[1]))
                     petal_lengths.append(float(parts[2]))
                     petal_widths.append(float(parts[3]))
+                    species.append(parts[4])
+
                     # 📚 https://shorturl.at/2UfNJ
+
 
 # 📚 Full references for this part:
 # - lists: https://www.w3schools.com/python/python_lists.asp
@@ -80,6 +84,7 @@ if os.path.exists(filename):  # Checking if file exists before opening it  → �
 # - append(): https://docs.python.org/3/tutorial/datastructures.html#more-on-lists 
 # https://www.w3schools.com/python/ref_list_append.asp
 # https://www.geeksforgeeks.org/python-list-append-method
+# https://www.w3schools.com/python/ref_list_append.asp
 
 
 # -------------------------------
@@ -91,6 +96,7 @@ if os.path.exists(filename):  # Checking if file exists before opening it  → �
         "sepal_width": sepal_widths,
         "petal_length": petal_lengths,
         "petal_width": petal_widths
+        "species": species
     })
 # This part creates Pandas DataFrame from the lists above
 # Each list becomes a column in the DataFrame, with the column names being the keys in the dictionary
@@ -329,6 +335,8 @@ plt.figure(figsize=(8, 6))  # Setting the size of the figure (width=8, height=6)
 sns.scatterplot(
     x=df[x_feature],         # The x-values are taken from the column named in x_feature → 📚 https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
     y=df[y_feature],         # The y-values are taken from the column named in y_feature → 📚 https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
+    hue=df["species"],       # Adding colour by species → 📚 https://seaborn.pydata.org/generated/seaborn.scatterplot.html#seaborn.scatterplot
+    palette="Spectral",      # Adding pallette → 📚 https://seaborn.pydata.org/tutorial/color_palettes.html
     s=80,                    # Size of each marker (dot) → 📚 https://seaborn.pydata.org/generated/seaborn.scatterplot.html#seaborn.scatterplot
     edgecolor="black",       # Adds a black border around each marker → 📚 same as above
     alpha=0.8                # Sets the transparency level of the dots (1.0 = opaque) → 📚 same as above
@@ -339,10 +347,20 @@ plt.xlabel("Sepal Length")           # Label for the x-axis → 📚 https://mat
 plt.ylabel("Petal Length")           # Label for the y-axis → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html
 plt.title("Sepal Length vs Petal Length")  # Title above the chart → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html
 
-plt.grid(True)  # Add grid lines to improve readability → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
+plt.grid(True)  # Adds grid lines to improve readability → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
 
-# Show the completed plot on screen
-plt.savefig("sepal_vs_petal_length.png")  # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
+# Correlation → 📚 https://realpython.com/numpy-scipy-pandas-correlation-python/
+corr = df[[x_feature, y_feature]].corr().iloc[0, 1]
+
+# Subtitle → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.suptitle.html
+plt.suptitle(f"Correlation: {corr:.2f}", fontsize=10, y=0.94, color='darkgray')
+
+# Legend → 📚 https://www.geeksforgeeks.org/matplotlib-pyplot-legend-in-python/
+plt.legend(title="Species")
+
+# Exporting the plot as a PNG file
+# The file name is set to "sepal_vs_petal_length_scatterplot.png"
+plt.savefig("sepal_vs_petal_length_scatterplot.png")  # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
 plt.close()  # Close the figure after saving → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
 
 
@@ -362,10 +380,15 @@ plt.close()  # Close the figure after saving → 📚 https://matplotlib.org/sta
 # https://www.geeksforgeeks.org/matplotlib-pyplot-title-in-python/
 # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
 # https://www.geeksforgeeks.org/grids-in-matplotlib/
+# https://realpython.com/numpy-scipy-pandas-correlation-python/
+# https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iloc.html
 # https://www.w3schools.com/python/matplotlib_grid.asp
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.suptitle.html
+# https://www.geeksforgeeks.org/matplotlib-pyplot-legend-in-python/
 # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
 # mhttps://www.geeksforgeeks.org/matplotlib-pyplot-savefig-in-python/
 # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
+
 
 
 
