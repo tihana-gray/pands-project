@@ -308,10 +308,22 @@ for item in iris_data:
 # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
 
 
+# ------------------------------
+# Scatter Plots for each pair of variables
+# ------------------------------
 
+# Importing necessary plotting libraries for visualisation
+import matplotlib.pyplot as plt    # 📚 https://matplotlib.org/stable/users/index.html
+import seaborn as sns             # 📚 https://seaborn.pydata.org/
 
+# Example check — confirming df is defined → 📚 https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.columns.html
+print(df.columns)
 
-
+# 📚 Full references for this part:
+# https://matplotlib.org/stable/users/index.html
+# https://seaborn.pydata.org/ 
+# https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.columns.html
+# https://www.geeksforgeeks.org/python-pandas-dataframe-columns/
 
 
 
