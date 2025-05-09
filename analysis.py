@@ -59,8 +59,7 @@ if os.path.exists(filename):  # Checking if file exists before opening it  → �
                     sepal_widths.append(float(parts[1]))
                     petal_lengths.append(float(parts[2]))
                     petal_widths.append(float(parts[3]))
-                    species.append(parts[4])
-
+                    species.append(parts[4]) # 5th value is the species name, for the scatterplot (this is a string)
                     # 📚 https://shorturl.at/2UfNJ
 
 
@@ -95,7 +94,7 @@ if os.path.exists(filename):  # Checking if file exists before opening it  → �
         "sepal_length": sepal_lengths,
         "sepal_width": sepal_widths,
         "petal_length": petal_lengths,
-        "petal_width": petal_widths
+        "petal_width": petal_widths,
         "species": species
     })
 # This part creates Pandas DataFrame from the lists above
@@ -388,6 +387,7 @@ plt.close()  # Close the figure after saving → 📚 https://matplotlib.org/sta
 # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
 # mhttps://www.geeksforgeeks.org/matplotlib-pyplot-savefig-in-python/
 # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
+# https://seaborn.pydata.org/tutorial/color_palettes.html
 
 
 
