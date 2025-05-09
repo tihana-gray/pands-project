@@ -319,11 +319,53 @@ import seaborn as sns             # 📚 https://seaborn.pydata.org/
 # Example check — confirming df is defined → 📚 https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.columns.html
 print(df.columns)
 
+# Selecting two numerical variables from the DataFrame to compare
+x_feature = "sepal_length"  # Will be plotted on the x-axis
+y_feature = "petal_length"  # Will be plotted on the y-axis
+# 📚 https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
+
+# Creating the scatter plot → 📚 https://seaborn.pydata.org/generated/seaborn.scatterplot.html
+plt.figure(figsize=(8, 6))  # Setting the size of the figure (width=8, height=6) → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html
+sns.scatterplot(
+    x=df[x_feature],         # The x-values are taken from the column named in x_feature → 📚 https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
+    y=df[y_feature],         # The y-values are taken from the column named in y_feature → 📚 https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
+    s=80,                    # Size of each marker (dot) → 📚 https://seaborn.pydata.org/generated/seaborn.scatterplot.html#seaborn.scatterplot
+    edgecolor="black",       # Adds a black border around each marker → 📚 same as above
+    alpha=0.8                # Sets the transparency level of the dots (1.0 = opaque) → 📚 same as above
+)
+
+# Adding descriptive labels and a title → 📚 https://matplotlib.org/stable/api/pyplot_api.html
+plt.xlabel("Sepal Length")           # Label for the x-axis → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html
+plt.ylabel("Petal Length")           # Label for the y-axis → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html
+plt.title("Sepal Length vs Petal Length")  # Title above the chart → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html
+
+plt.grid(True)  # Add grid lines to improve readability → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
+
+# Show the completed plot on screen
+plt.savefig("sepal_vs_petal_length.png")  # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
+plt.close()  # Close the figure after saving → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
+
+
 # 📚 Full references for this part:
 # https://matplotlib.org/stable/users/index.html
 # https://seaborn.pydata.org/ 
 # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.columns.html
-# https://www.geeksforgeeks.org/python-pandas-dataframe-columns/
+# https://www.geeksforgeeks.org/how-to-get-column-names-in-pandas-dataframe/
+# https://seaborn.pydata.org/generated/seaborn.scatterplot.html
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html
+# https://stackoverflow.com/questions/332289/how-do-i-change-the-size-of-figures-drawn-with-matplotlib
+# https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
+# https://seaborn.pydata.org/generated/seaborn.scatterplot.html#seaborn.scatterplot
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html
+# https://www.geeksforgeeks.org/matplotlib-pyplot-title-in-python/
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
+# https://www.geeksforgeeks.org/grids-in-matplotlib/
+# https://www.w3schools.com/python/matplotlib_grid.asp
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
+# mhttps://www.geeksforgeeks.org/matplotlib-pyplot-savefig-in-python/
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
 
 
 
