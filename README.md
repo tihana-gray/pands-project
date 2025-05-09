@@ -200,6 +200,21 @@ The variables are:
 
 The script loops through each variable using a tuple that pairs variable names with their corresponding list of values. For each variable, a histogram is plotted using `sns.histplot()` with 20 bins and a clean color scheme (skyblue fill and black edge). Labels, titles, and grid lines are added using `matplotlib.pyplot` functions. The final figure is saved as a .png file named after the variable (e.g., `sepal_length_histogram.png`).
 
+**📚 References (full list of refrences provided with the code):**
+- https://matplotlib.org/stable/users/index.html
+- https://seaborn.pydata.org/
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html
+- https://seaborn.pydata.org/generated/seaborn.histplot.html
+- https://stackoverflow.com/questions/10867882/how-are-tuples-unpacked-in-for-loops
+- https://www.geeksforgeeks.org/seaborn-distribution-plots/?ref=oin_asr2
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
+
 ## 💭 *Personal Learning Notes on this part:*
 
 During this part of the project, I went through several iterations of the code. I tried different approaches to plotting and made multiple versions with only slight changes between them. At one point, I mistakenly implemented scatterplots instead of histograms because I lost track of the task order. This led to some duplicated work and confusion about which method best matched the project requirements. It became obvious that planning before coding is important (especially when juggling another module project at the same time and things gets mixed up easily), keeping track of instructions, and distinguishing between similar project tasks.
+
+----------------------------------------------------------------------------------------------------------------------
