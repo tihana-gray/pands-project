@@ -284,13 +284,13 @@ for item in iris_data:
     plt.xlabel(name, fontsize=12)                     # X-axis label → 📚 https://shorturl.at/IgcT0
     plt.ylabel("Frequency", fontsize=12)              # Y-axis label → 📚 https://shorturl.at/OE038
 
-    plt.grid(True)  # Adding grid lines to the plot to make it easier to read → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
+    plt.grid(True)  # Adding grid lines to the plot to make it easier to read → 📚 https://shorturl.at/4YFoV
    
     # Saving the plot
     file_name = name + "_histogram.png"     # Making the file name
-    plt.savefig(file_name)                  # Saving the figure as a PNG file → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
+    plt.savefig(file_name)                  # Saving the figure as a PNG file → 📚 https://shorturl.at/6qtbn
 
-    plt.close()   # Closing the figure to free up memory → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
+    plt.close()   # Closing the figure to free up memory → 📚 https://shorturl.at/KYLCG
 
 # 📚 Full references for this part:
 # https://matplotlib.org/stable/users/index.html

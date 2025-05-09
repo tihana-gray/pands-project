@@ -136,7 +136,7 @@ The rows are sorted alphabetically using `.sort_index()` and the table is printe
 - https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html
 
 
-## 💭 *Personal Notes on this part:*
+## 💭 *Personal Learning Notes on this part:*
 
 - I relied on online references used for similar taskwork from Principles of Data Analytics module. Perhaps some of the solutions are not as pratical as they could be but it made me more comnfortable to use something that I used before (and explore it in more detail/repurpose it).
 - My studying approach during this part and for text file/histogram part (and for previous module tasks) was to explore the code in the Notepad++ by using online references and examples and trying to replicate them to fit the task. Afterwards, I'd run the code in the VS Code and focus on errors, try different code versions and run the program again. However, this approach does not show detailed steps in GitHub so going forward I will save every step of the progress/testing in the repository.
@@ -180,9 +180,26 @@ After writing, the file is closed using `f.close()` and then reopened in read mo
 - https://www.w3schools.com/python/ref_file_close.asp
 
 
-## 💭 *Personal Notes on this part:*
+## 💭 *Personal Learning Notes on this part:*
 
 - I decided to adjust the code, after speaking to some of the collegaues because the previous solution seemed prone to errors. There was a bit of an issue with figuring out how to reopen filles after writing and wheter to use `x` or `w` mode.
 - Another issue was managing the structure and logic of the code when working with multiple related files.
 - I also struggled arround `NameError` after I updated the name variable in one place and couldn't find where it was actually used and where it needs to be updated.
 
+----------------------------------------------------------------------------------------------------------------------
+
+## 🔢 Part 5: Histograms for Each Variable
+
+This section creates a histogram for each of the four numerical variables in the Iris dataset using `Seaborn` and `Matplotlib`.
+
+The variables are:
+- `sepal_length`
+- `sepal_width`
+- `petal_length`
+- `petal_width`
+
+The script loops through each variable using a tuple that pairs variable names with their corresponding list of values. For each variable, a histogram is plotted using `sns.histplot()` with 20 bins and a clean color scheme (skyblue fill and black edge). Labels, titles, and grid lines are added using `matplotlib.pyplot` functions. The final figure is saved as a .png file named after the variable (e.g., `sepal_length_histogram.png`).
+
+## 💭 *Personal Learning Notes on this part:*
+
+During this part of the project, I went through several iterations of the code. I tried different approaches to plotting and made multiple versions with only slight changes between them. At one point, I mistakenly implemented scatterplots instead of histograms because I lost track of the task order. This led to some duplicated work and confusion about which method best matched the project requirements. It became obvious that planning before coding is important (especially when juggling another module project at the same time and things gets mixed up easily), keeping track of instructions, and distinguishing between similar project tasks.
