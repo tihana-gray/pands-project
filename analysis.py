@@ -324,6 +324,7 @@ import seaborn as sns             # 📚 https://seaborn.pydata.org/
 # Example check — confirming df is defined → 📚 https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.columns.html
 print(df.columns)
 
+
 # ------------------------------
 # First pair of variables: Sepal Length vs Petal Length
 
@@ -335,8 +336,8 @@ y_feature = "petal_length"  # Will be plotted on the y-axis
 # Creating the scatter plot → 📚 https://seaborn.pydata.org/generated/seaborn.scatterplot.html
 plt.figure(figsize=(8, 6))  # Setting the size of the figure (width=8, height=6) → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html
 sns.scatterplot(
-    x=df[x_feature],         # The x-values are taken from the column named in x_feature → 📚 https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
-    y=df[y_feature],         # The y-values are taken from the column named in y_feature → 📚 https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
+    x=df[x_feature],         # X axes: the x-values are taken from the column named in x_feature → 📚 https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
+    y=df[y_feature],         # Y axes: the y-values are taken from the column named in y_feature → 📚 https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
     hue=df["species"],       # Adding colour by species → 📚 https://seaborn.pydata.org/generated/seaborn.scatterplot.html#seaborn.scatterplot
     palette="Spectral",      # Adding pallette → 📚 https://seaborn.pydata.org/tutorial/color_palettes.html
     s=80,                    # Size of each marker (dot) → 📚 https://seaborn.pydata.org/generated/seaborn.scatterplot.html#seaborn.scatterplot
@@ -353,6 +354,12 @@ plt.grid(True)  # Adds grid lines to improve readability → 📚 https://matplo
 
 # Correlation → 📚 https://realpython.com/numpy-scipy-pandas-correlation-python/
 corr = df[[x_feature, y_feature]].corr().iloc[0, 1]
+# This calculates the correlation between the two selected features
+# `df[[x_feature, y_feature]]` selects the two columns from the DataFrame
+# `.corr()` calculates the correlation matrix for those two columns
+# `.iloc[0, 1]` selects the correlation value between the two features
+# 📚 https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.corr.html
+# 📚 https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iloc.html
 
 # Subtitle → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.suptitle.html
 plt.suptitle(f"Correlation: {corr:.2f}", fontsize=10, y=0.94, color='dimgray')
@@ -566,7 +573,9 @@ plt.close()
 # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
 # https://www.geeksforgeeks.org/grids-in-matplotlib/
 # https://realpython.com/numpy-scipy-pandas-correlation-python/
+# https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.corr.html
 # https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iloc.html
+# https://www.w3schools.com/python/pandas/ref_df_iloc.asp
 # https://www.w3schools.com/python/matplotlib_grid.asp
 # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.suptitle.html
 # https://www.geeksforgeeks.org/matplotlib-pyplot-legend-in-python/
@@ -575,9 +584,6 @@ plt.close()
 # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
 # https://seaborn.pydata.org/tutorial/color_palettes.html
 # https://matplotlib.org/stable/gallery/color/named_colors.html
-
-
-
 
 
 

@@ -188,7 +188,7 @@ After writing, the file is closed using `f.close()` and then reopened in read mo
 
 ----------------------------------------------------------------------------------------------------------------------
 
-## 🔢 Part 5: Histograms for Each Variable
+## 📊 Part 5: Histograms for Each Variable
 
 This section creates a histogram for each of the four numerical variables in the Iris dataset using `Seaborn` and `Matplotlib`.
 
@@ -218,3 +218,45 @@ The script loops through each variable using a tuple that pairs variable names w
 During this part of the project, I went through several iterations of the code. I tried different approaches to plotting and made multiple versions with only slight changes between them. At one point, I mistakenly implemented scatterplots instead of histograms because I lost track of the task order. This led to some duplicated work and confusion about which method best matched the project requirements. It became obvious that planning before coding is important (especially when juggling another module project at the same time and things gets mixed up easily), keeping track of instructions, and distinguishing between similar project tasks.
 
 ----------------------------------------------------------------------------------------------------------------------
+
+## 📊 Part 6: Scatter Plots for Each Pair of Variables
+
+This section of the code created scatter plots for each unique pair of numerical variables in the Iris dataset. These plots visually present relationships between measurements and assess how they distinguish between species.
+
+Each scatter plot compares two variables (e.g., sepal length vs petal length) and uses different color `seaborn` colour palettes to differentiate between the three species of iris flowers. This helps in identifying patterns, clusters, and potential correlations within the data.
+
+Stages:
+1. Importing necessary libraries - `Matplotlib` is used for plotting graphs and `Seaborn` helps to achieve better visualisation of data.
+2. I created 6 scatter plots, one for each unique pair of the four numerical values. For each plot two features were assigned to `x_feature` and `y_feature`. `sns.scatterplot()` was used to generate the plot.
+3. `Matplotlib` was used for adding labels and titles to the plot se we can clearly see what which axis represents.
+4. Next part calculated correlation between 2 selected variable pairs - `.corr()` is used to present correlations between columns and `.iloc[0, 1]` tells Pandas to give me the value from the first row and second column, which is the actual correlation between the plotted variables.
+5. Afterwards, the plot is saved as PNG file and closed.
+
+*📚 References (full list of refrences provided with the code):**
+- https://matplotlib.org/stable/users/index.html
+- https://seaborn.pydata.org/
+- https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.columns.html
+- https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
+- https://seaborn.pydata.org/generated/seaborn.scatterplot.html
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html
+- https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
+- https://seaborn.pydata.org/generated/seaborn.scatterplot.html#seaborn.scatterplot
+- https://seaborn.pydata.org/tutorial/color_palettes.html
+- https://seaborn.pydata.org/generated/seaborn.scatterplot.html#seaborn.scatterplot
+- https://matplotlib.org/stable/api/pyplot_api.html
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
+- https://realpython.com/numpy-scipy-pandas-correlation-python/
+- https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.corr.html
+- https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iloc.html
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.suptitle.html
+- https://www.geeksforgeeks.org/matplotlib-pyplot-legend-in-python/
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
+
+
+## 💭 *Personal Learning Notes on this part:*
+
+ At earlier stage of the project I started working on scatter plots instead of histograms and then I tried using a nested loop that repeats over pairs of variable. The idea was to automate the plotting process by reducing code duplication. However, this method has limitations because I couldn't get the flexibility I needed for colour grouping by species or styling. That's why I decided to use the already tested version, done for 'Principles of Data Analytics' module. In this code version, I duplicated the same code structure for each pair of variables and had better control of what I'm doing regarding grouping by species, adding visual features, etc. 
