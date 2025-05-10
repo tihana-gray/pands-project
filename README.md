@@ -299,7 +299,7 @@ Stages:
 - https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.suptitle.html
 - https://www.geeksforgeeks.org/matplotlib-pyplot-legend-in-python/
 - https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
-- mhttps://www.geeksforgeeks.org/matplotlib-pyplot-savefig-in-python/
+- https://www.geeksforgeeks.org/matplotlib-pyplot-savefig-in-python/
 - https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
 - https://matplotlib.org/stable/gallery/color/named_colors.html
 
