@@ -514,7 +514,7 @@ plt.close()
 
 
 # ------------------------------
-# Sixth pair of variables: Petal Length vs Setal Width
+# Sixth pair of variables: Petal Length vs Sepal Width
 
 # (this code repeats the same process as above)
 
