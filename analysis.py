@@ -440,6 +440,43 @@ plt.savefig("sepal_width_vs_petal_length_scatterplot.png")
 plt.close()
 
 
+# ------------------------------
+# Fourth pair of variables: Sepal Width vs Petal Width
+
+# (this code and the following variables repeat the same process as above)
+
+x_feature = "sepal_width"
+y_feature = "petal_width"
+
+plt.figure(figsize=(8, 6))
+
+sns.scatterplot(
+    x=df[x_feature],         
+    y=df[y_feature],         
+    hue=df["species"],       
+    palette="Paired",      
+    s=80,                    
+    edgecolor="black",       
+    alpha=0.8                
+)
+
+plt.xlabel("Sepal Width")          
+plt.ylabel("Petal Width")          
+plt.title("Sepal Width vs Petal Width")
+
+plt.grid(True)
+
+corr = df[[x_feature, y_feature]].corr().iloc[0, 1]
+
+plt.suptitle(f"Correlation: {corr:.2f}", fontsize=10, y=0.94, color='dimgray')
+
+plt.legend(title="Species")
+
+plt.savefig("sepal_width_vs_petal_width_scatterplot.png")
+
+plt.close()
+
+
 # 📚 Full references for this part:
 # https://matplotlib.org/stable/users/index.html
 # https://seaborn.pydata.org/ 
