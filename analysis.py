@@ -525,9 +525,10 @@ plt.close()
 # matplotlib and seaborn are already imported above
 # This part shows the distribution of species in the dataset
 
+# ------------------------------
+# Box plot for Petal Length
+
 plt.figure(figsize=(8, 6))  # Setting figure width to 8 and height to 6 inches
-sns.countplot(data=df, x="species", palette="Set2")  # Shows how many of each species are in the dataset
-# 📚 https://seaborn.pydata.org/generated/seaborn.countplot.html
 
 sns.boxplot(x="species", y="petal_length", data=df, palette="Set2")
   # Shows categorical variable on x-axis and numerical variable on y-axis
@@ -541,11 +542,10 @@ sns.boxplot(x="species", y="petal_length", data=df, palette="Set2")
 
 plt.xlabel("Species")                      # X-axis label → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html
 plt.ylabel("Petal Length (cm)")            # Y-axis label → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html
-plt.title("Class Distribution: Number of Samples per Species")  # Overall plot title → 📚 https://www.geeksforgeeks.org/matplotlib-pyplot-title-in-python/
+plt.title("Class Distribution")  # Overall plot title → 📚 https://www.geeksforgeeks.org/matplotlib-pyplot-title-in-python/
 
-plt.show()
-
-
+plt.savefig("class_distribution_petal_length.png")
+plt.close()
 
 
 # 📚 References:
@@ -558,6 +558,8 @@ plt.show()
 # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html
 # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.htm
 # https://www.geeksforgeeks.org/matplotlib-pyplot-title-in-python/
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
+# https://www.geeksforgeeks.org/matplotlib-pyplot-savefig-in-python/
 
 
 
