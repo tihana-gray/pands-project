@@ -531,10 +531,19 @@ sns.countplot(data=df, x="species", palette="Set2")  # Shows how many of each sp
 
 sns.boxplot(x="species", y="petal_length", data=df, palette="Set2")
   # Shows categorical variable on x-axis and numerical variable on y-axis
+  # x="species" shows a separate box for each class of species
+  # y="petal_length" shows the distribution of petal lengths for each species
   # Source DataFrame is df
   # Custom colour palette
 # 📚 https://seaborn.pydata.org/generated/seaborn.boxplot.html
 
+# Adding titles and labels
+
+plt.xlabel("Species")                      # X-axis label → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html
+plt.ylabel("Petal Length (cm)")            # Y-axis label → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html
+plt.title("Class Distribution: Number of Samples per Species")  # Overall plot title → 📚 https://www.geeksforgeeks.org/matplotlib-pyplot-title-in-python/
+
+plt.show()
 
 
 
@@ -545,8 +554,10 @@ sns.boxplot(x="species", y="petal_length", data=df, palette="Set2")
 # https://seaborn.pydata.org/generated/seaborn.boxplot.html
 # https://www.geeksforgeeks.org/boxplot-using-seaborn-in-python/
 # https://seaborn.pydata.org/tutorial/color_palettes.html
-
-
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.htm
+# https://www.geeksforgeeks.org/matplotlib-pyplot-title-in-python/
 
 
 
