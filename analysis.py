@@ -515,8 +515,36 @@ plt.close()
 # 📚 Full list of references for this part are in the README.md file.
 
 
+# ------------------------------------------------------------
+## Third stage of the project: Other Analysis and Visualisation
+
+# ------------------------------
+# Class Distribution
+# ------------------------------
+
+# matplotlib and seaborn are already imported above
+# This part shows the distribution of species in the dataset
+
+plt.figure(figsize=(8, 6))  # Setting figure width to 8 and height to 6 inches
+sns.countplot(data=df, x="species", palette="Set2")  # Shows how many of each species are in the dataset
+# 📚 https://seaborn.pydata.org/generated/seaborn.countplot.html
+
+sns.boxplot(x="species", y="petal_length", data=df, palette="Set2")
+  # Shows categorical variable on x-axis and numerical variable on y-axis
+  # Source DataFrame is df
+  # Custom colour palette
+# 📚 https://seaborn.pydata.org/generated/seaborn.boxplot.html
 
 
+
+
+
+# 📚 References:
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html
+# https://seaborn.pydata.org/generated/seaborn.countplot.html
+# https://seaborn.pydata.org/generated/seaborn.boxplot.html
+# https://www.geeksforgeeks.org/boxplot-using-seaborn-in-python/
+# https://seaborn.pydata.org/tutorial/color_palettes.html
 
 
 
