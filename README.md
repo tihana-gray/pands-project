@@ -58,7 +58,7 @@ After downloading the files, I created a folder in my project called iris_data. 
 
 ----------------------------------------------------------------------------------------------------------------------
 
-## 🔢 Part 3: Reading Data
+## 🔢 Part 3: Importing necessary libraries
 
 In the next part of this project the goal is on getting summary statistics for each of the four numeric measurements in the Iris dataset:
 
@@ -81,7 +81,7 @@ At the beginning of my script, I imported three libraries: `os`, `numpy`, and `p
 
 ----------
 
-1. **Reading the dataset**
+1. **Reading the data from the file**
 
 To start working with the Iris dataset, it's necessary to read the values from the file and organise them into something that Python can use for calculations.\ 
 I created lists for each dataset. The plan was to go through the file line by line and split each row into separate values and then store it in the appropriate list.\
@@ -94,30 +94,50 @@ The function `open()` opens the file and reads it line by line. For each line:\
 The first four values on each line are numeric, so I converted them from strings to floats using the `float()` function. 
 Then, I used `.append()` to add each value to the correct list. These lists would later be used to create a DataFrame and calculate statistics like the mean, median, etc.
 
-**📚 References (full list of refrences provided with the code):**
+**📚 References for this part:**
+
+- https://www.w3schools.com/python/python_lists.asp
 - https://docs.python.org/3/tutorial/datastructures.html#more-on-lists
+- https://docs.python.org/3/library/os.path.html#os.path.exists
+- https://docs.python.org/3/library/functions.html#open
+- https://www.w3schools.com/Python/ref_func_open.asp
 - https://www.w3schools.com/python/python_file_open.asp
+- https://www.geeksforgeeks.org/read-a-file-line-by-line-in-python/
 - https://docs.python.org/3/library/stdtypes.html#str.strip
+- https://www.w3schools.com/python/ref_string_strip.asp
+- https://stackoverflow.com/questions/40647881/skipping-blank-lines-in-read-file-python/40647977
 - https://docs.python.org/3/library/stdtypes.html#str.split
-- https://docs.python.org/3/library/functions.html#float
+- https://www.geeksforgeeks.org/python-string-split/
+- https://realpython.com/len-python-function/
+- https://realpython.com/python-lists-tuples/#measuring-the-length-of-a-list
+- https://docs.python.org/3/library/functions.html#float 
+- https://www.w3schools.com/python/ref_func_float.asptypes.html#str.strip 
+- https://docs.python.org/3/tutorial/datastructures.html#more-on-lists 
 - https://www.w3schools.com/python/ref_list_append.asp
+- https://www.geeksforgeeks.org/python-list-append-method
 
 ----------
 
-2. **Creating DataFrame from the list**
+2. **Creating DataFrame**
 
 After file reading, the script uses `pd.DataFrame()` to turn the lists into a table format. I also gave each row a name by using a list of names. Column names are `"sepal_length"`, `"sepal_width"`, `"petal_length"`, and `"petal_width"`.
 Before creating the DataFrame, I included a check using `os.path.exists()` to see if the dataset file actually exists. If it doesn't, an `else` part is used to print a message with the filename and stop the program using `exit()`. This is helpful when debugging because the program won’t crash later from trying to read a missing file, and it lets me know exactly what went wrong.
 
-**📚 References (full list of refrences provided with the code):**
+**📚 References for this part:**
+
 - https://docs.python.org/3/library/os.path.html#os.path.exists
 - https://www.w3schools.com/python/pandas/pandas_dataframes.asp
 - https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
+- https://www.w3schools.com/python/ref_func_print.asp
+- https://realpython.com/pandas-dataframe/
+- https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings
+- https://realpython.com/python-f-strings/
+- https://docs.python.org/3/library/constants.html#exit
 - https://docs.python.org/3/library/sys.html#sys.exit
 
 ----------
 
-3. **Calculations**
+3. **Calculating Summary Statistics Using Pandas**
 
 In this part, the script calculates summary statistics for each of the four numeric variables using the `.describe()` method in Pandas. This provides statistical measures such as count, mean, standard deviation, min, max, and percentiles (25%, 50%, and 75%). To make the output easier to read, `.T` is used to transpose the table so that each variable becomes a row and each statistical measure becomes a column.
 
@@ -127,13 +147,23 @@ To keep the summary consistent, only the columns `"mean"`, `"min"`, `"max"`, `"s
 
 The rows are sorted alphabetically using `.sort_index()` and the table is printed to the terminal and saved to a file called `summary.txt` in tab-separated format using `.to_csv()`.
 
-**📚 References (full list of refrences provided with the code):**
+**📚 References for this part:**
+
 - https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.describe.html
-- https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.T.html
+- https://pandas.pydata.org/pandas-docs/version/0.25.0/reference/api/pandas.DataFrame.T.html
+- https://www.geeksforgeeks.org/pandas-dataframe-t-function-in-python/
+- https://stackoverflow.com/questions/54734957/difference-between-transpose-and-t-in-pandas
+- https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.select_dtypes.html
+- https://www.w3schools.com/python/pandas/ref_df_select_dtypes.asp
 - https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.median.html
-- https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.filter.html
+- https://www.w3schools.com/python/ref_stat_median.asp#:~:text=median()%20method%20calculates%20the,in%20a%20set%20of%20data.
+- https://www.geeksforgeeks.org/select-rows-columns-by-name-or-index-in-pandas-dataframe-using-loc-iloc/
 - https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_index.html
+- https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_index.html
+- https://realpython.com/pandas-sort-python/
 - https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html
+- https://www.geeksforgeeks.org/python-sep-parameter-print/
+- https://stackoverflow.com/questions/22116482/what-does-print-sep-t-mean
 
 
 ## 💭 *Personal Learning Notes on this part:*
@@ -143,7 +173,7 @@ The rows are sorted alphabetically using `.sort_index()` and the table is printe
 
 ----------------------------------------------------------------------------------------------------------------------
 
-## 🔢 Part 4: Variable summaries to text files
+## 🔢 Part 4: Outputting a summary of each variable to a single text file
 
 In this section, the script generates individual text files for each of the four numeric variables in the Iris dataset: `sepal_length`, `sepal_width`, `petal_length`, and `petal_width`.
 
@@ -166,15 +196,22 @@ After writing, the file is closed using `f.close()` and then reopened in read mo
 **📚 References (full list of refrences provided with the code):**
 - https://www.w3schools.com/python/python_tuples.asp
 - https://www.w3schools.com/python/python_for_loops.asp
+- https://realpython.com/python-for-loop/
 - https://www.geeksforgeeks.org/numpy-mean-in-python/
 - https://www.geeksforgeeks.org/use-of-min-and-max-in-python/
+- https://realpython.com/python-min-and-max/
+- https://www.geeksforgeeks.org/numpy-std-in-python/
 - https://numpy.org/doc/stable/reference/generated/numpy.std.html
 - https://www.geeksforgeeks.org/numpy-median-in-python/
 - https://www.w3schools.com/python/ref_func_open.asp
 - https://www.w3schools.com/python/python_conditions.asp
+- https://superuser.com/questions/940463/file-names-starting-with-a-string-in-the-format-of-txt-give-error-in-for
+- https://www.w3schools.com/python/python_strings_methods.asp
 - https://www.w3schools.com/python/gloss_python_string_concatenation.asp
 - https://www.w3schools.com/python/ref_func_round.asp
 - https://stackoverflow.com/questions/60885439/how-the-n-symbol-works-in-python
+- https://www.geeksforgeeks.org/python-new-line-add-print-a-new-line/
+- https://realpython.com/if-name-main-python/
 - https://www.w3schools.com/python/ref_func_str.asp
 - https://www.w3schools.com/python/ref_file_write.asp
 - https://www.w3schools.com/python/ref_file_close.asp
@@ -212,6 +249,10 @@ The script loops through each variable using a tuple that pairs variable names w
 - https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html
 - https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
 - https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
+- https://stackoverflow.com/questions/72057721/adding-a-black-edgecolor-around-to-legend-entries-in-matplotlib
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
+- https://www.geeksforgeeks.org/handling-memory-leaks-in-matplotlib/
+
 
 ## 💭 *Personal Learning Notes on this part:*
 
@@ -236,25 +277,31 @@ Stages:
 - https://matplotlib.org/stable/users/index.html
 - https://seaborn.pydata.org/
 - https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.columns.html
+- https://www.geeksforgeeks.org/how-to-get-column-names-in-pandas-dataframe/
 - https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
 - https://seaborn.pydata.org/generated/seaborn.scatterplot.html
 - https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html
-- https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
 - https://seaborn.pydata.org/generated/seaborn.scatterplot.html#seaborn.scatterplot
+- https://stackoverflow.com/questions/332289/how-do-i-change-the-size-of-figures-drawn-with-matplotlib
 - https://seaborn.pydata.org/tutorial/color_palettes.html
-- https://seaborn.pydata.org/generated/seaborn.scatterplot.html#seaborn.scatterplot
 - https://matplotlib.org/stable/api/pyplot_api.html
 - https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html
 - https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html
 - https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html
+- https://www.geeksforgeeks.org/matplotlib-pyplot-title-in-python/
 - https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
+- https://www.geeksforgeeks.org/grids-in-matplotlib/
 - https://realpython.com/numpy-scipy-pandas-correlation-python/
 - https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.corr.html
 - https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iloc.html
+- https://www.w3schools.com/python/pandas/ref_df_iloc.asp
+- https://www.w3schools.com/python/matplotlib_grid.asp
 - https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.suptitle.html
 - https://www.geeksforgeeks.org/matplotlib-pyplot-legend-in-python/
 - https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
+- mhttps://www.geeksforgeeks.org/matplotlib-pyplot-savefig-in-python/
 - https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
+- https://matplotlib.org/stable/gallery/color/named_colors.html
 
 
 ## 💭 *Personal Learning Notes on this part:*
