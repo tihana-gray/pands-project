@@ -647,6 +647,19 @@ plt.imshow(correlation_matrix, cmap='coolwarm')
 
 plt.colorbar(label='Correlation Coefficient')  # Adds a colour scale legend → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.colorbar.html
 
+tick_marks = np.arange(len(correlation_matrix.columns))  # 📚 https://numpy.org/doc/stable/reference/generated/numpy.arange.html
+# This creates an array of tick marks for the x and y axes
+# `correlation_matrix.columns` gets the names of the columns in the correlation matrix
+# `len(correlation_matrix.columns)` gives the number of columns (and rows, since it's square)
+# `np.arange()` creates an array of numbers from 0 to the number of columns
+
+# Placing labels on X and Y axes → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xticks.html
+plt.xticks(tick_marks, correlation_matrix.columns)
+plt.yticks(tick_marks, correlation_matrix.columns)
+# This sets the tick marks on the x and y axes to the column names of the correlation matrix
+# The `tick_marks` array is used to position the labels correctly
+
+
 
 # 📚 References:
 
@@ -659,3 +672,8 @@ plt.colorbar(label='Correlation Coefficient')  # Adds a colour scale legend → 
 # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html
 # https://matplotlib.org/stable/users/explain/colors/colormaps.html
 # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.colorbar.html
+# https://www.geeksforgeeks.org/numpy-arrange-in-python/
+# https://www.w3schools.com/datascience/ds_stat_correlation_matrix.asp
+# https://numpy.org/doc/stable/reference/generated/numpy.arange.html
+# https://docs.python.org/3/library/functions.html#len
+# https://stackoverflow.com/questions/29432629/plot-correlation-matrix-using-pandas
