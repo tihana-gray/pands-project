@@ -639,10 +639,13 @@ correlation_matrix = df.select_dtypes(include='number').corr()
 # The result is a DataFrame showing how strongly features move together (1 = perfect positive, -1 = perfect negative)
 # 📚 https://realpython.com/numpy-scipy-pandas-correlation-python/
 
-# Using imshow to create the heatmap → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html
-plt.imshow(correlation_matrix, cmap='coolwarm',
 plt.figure(figsize=(8, 6))  # Sets the figure size for the heatmap → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html
+# Using imshow to create the heatmap → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html
+plt.imshow(correlation_matrix, cmap='coolwarm')
+# 'coolwarm' provides a diverging colour map (good for highlighting high and low values)
+# 📚 https://matplotlib.org/stable/tutorials/colors/colormaps.html
 
+plt.colorbar(label='Correlation Coefficient')  # Adds a colour scale legend → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.colorbar.html
 
 
 # 📚 References:
@@ -652,4 +655,7 @@ plt.figure(figsize=(8, 6))  # Sets the figure size for the heatmap → 📚 http
 # https://realpython.com/numpy-scipy-pandas-correlation-python/
 # https://www.geeksforgeeks.org/how-to-draw-2d-heatmap-using-matplotlib-in-python/
 # https://stackoverflow.com/questions/33282368/plotting-a-2d-heatmap
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html
 # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html
+# https://matplotlib.org/stable/users/explain/colors/colormaps.html
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.colorbar.html
