@@ -546,7 +546,7 @@ sns.stripplot(x="species", y="petal_length", data=df, color="red", size=4, jitte
 # Adding titles and labels
 plt.xlabel("Species")                      # X-axis label → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html
 plt.ylabel("Petal Length (cm)")            # Y-axis label → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html
-plt.title("Class Distribution")  # Overall plot title → 📚 https://www.geeksforgeeks.org/matplotlib-pyplot-title-in-python/
+plt.title("Class Distribution: Petal Length")  # Overall plot title → 📚 https://www.geeksforgeeks.org/matplotlib-pyplot-title-in-python/
 plt.suptitle("Showing petal length variation across species", fontsize=10, color="dimgray")
 
 plt.grid(True)  # Adding grid lines to the plot to make it easier to read → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
@@ -575,6 +575,52 @@ plt.suptitle("Showing petal length variation across species", fontsize=10, color
 plt.grid(True)
 
 plt.savefig("boxplot_class_distribution_sepal_length.png")
+plt.close()
+
+
+# ------------------------------
+# Box plot for Sepal Width
+
+# (this code repeats the same process as above)
+# Different pallete is used for variety
+
+plt.figure(figsize=(8, 6))
+
+sns.boxplot(x="species", y="sepal_width", hue="species", data=df, palette="viridis")
+
+sns.stripplot(x="species", y="sepal_width", data=df, color="red", size=4, jitter=True, dodge=True, alpha=0.6)
+
+plt.xlabel("Species")                    
+plt.ylabel("Sepal Width (cm)")          
+plt.title("Class Distribution: Sepal Width") 
+plt.suptitle("Showing sepal width variation across species", fontsize=10, color="dimgray")
+
+plt.grid(True)
+
+plt.savefig("boxplot_class_distribution_sepal_width.png")
+plt.close()
+
+
+# ------------------------------
+# Box plot for Petal Width
+
+# (this code repeats the same process as above)
+# Different pallete is used for variety
+
+plt.figure(figsize=(8, 6))
+
+sns.boxplot(x="species", y="petal_width", hue="species", data=df, palette="cubehelix")
+
+sns.stripplot(x="species", y="petal_width", data=df, color="red", size=4, jitter=True, dodge=True, alpha=0.6)
+
+plt.xlabel("Species")                    
+plt.ylabel("Petal Width (cm)")          
+plt.title("Class Distribution: Petal Width") 
+plt.suptitle("Showing Petal width variation across species", fontsize=10, color="dimgray")
+
+plt.grid(True)
+
+plt.savefig("boxplot_class_distribution_petal_width.png")
 plt.close()
 
 
