@@ -353,3 +353,41 @@ I repated this process for each of the four measurements.
 
 At the beginning, I tried to experiment with `sns.countplot()` but that made my box plot layout distorted and I decided to remove that completely. Also, initially I only used box plots but then decided to add `sns.stripplot()` because it looks nicer to see clusters and it's something I haven't tried before.
 
+----------------------------------------------------------------------------------------------------------------------
+
+2. **Correlation Heatmap of Iris Features**
+
+I used `.select_dtypes(include='number')` from pandas to isolate the numeric features and then applied the `.corr()` method to get the correlation coefficients. This resulted in a square matrix showing how strongly each pair of features are linearly related. For example, values close to 1 indicate strong positive correlation, and values near -1 represent strong negative correlation. This presents pairs of features that tend to increase or decrease together.
+
+To visualise the matrix, I used `plt.figure()` and `plt.imshow()` to convert the matrix into a heatmap image. The colormap `"coolwarm"` was chosen because it visually distinguishes strong negative and strong positive correlations using contrasting colours. I also added a colour bar using `plt.colorbar()` as a legend for the correlation scale.
+
+Tick marks were created for both axes using `np.arange()` and these tick were mapped to the feature names. Also, numeric values were added into each cell of the heatmap by using `for` loop that accessed each cell in the correlation matrix using `.iloc[i, j]`. The values were formatted to two decimal places using f-string formatting and `plt.text()` with centered alignment, and black text for good contrast against the heatmap colours.
+
+The heatmap was also given a title by using `plt.title()` and I adjusted the layout using `plt.tight_layout()` to prevent label overlap. The heatmap was saved as an image file using `plt.savefig()`.
+
+**📚 References for this part:**
+
+- https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.select_dtypes.html
+- https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.corr.html
+- https://realpython.com/numpy-scipy-pandas-correlation-python/
+- https://www.geeksforgeeks.org/how-to-draw-2d-heatmap-using-matplotlib-in-python/
+- https://stackoverflow.com/questions/33282368/plotting-a-2d-heatmap
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html
+- https://matplotlib.org/stable/users/explain/colors/colormaps.html
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.colorbar.html
+- https://www.geeksforgeeks.org/numpy-arrange-in-python/
+- https://www.w3schools.com/datascience/ds_stat_correlation_matrix.asp
+- https://numpy.org/doc/stable/reference/generated/numpy.arange.html
+- https://docs.python.org/3/library/functions.html#len
+- https://stackoverflow.com/questions/29432629/plot-correlation-matrix-using-pandas
+- https://stackoverflow.com/questions/18648626/for-loop-with-two-variables
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.text.html
+- https://www.geeksforgeeks.org/add-text-inside-the-plot-in-matplotlib/
+- https://stackoverflow.com/questions/29294983/how-to-calculate-correlation-between-all-columns-and-remove-highly-correlated-on
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html
+
+
+## 💭 *Personal Learning Notes on this part:*
+
+I thought correlation heatmap would be appropriate addition to the research because I used it before I like the way it shows the strength and direction of relationships between all numeric features in one concise visual. It gives a quick overview of which features are closely related and which ones are not, which can support or challenge patterns observed earlier in the project.

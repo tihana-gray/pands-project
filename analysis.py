@@ -685,24 +685,21 @@ plt.tight_layout()  # Automatically adjusts layout to prevent overlap → 📚 h
 plt.savefig("correlation_heatmap_of_iris_features.png")
 plt.close()
 
-# 📚 References:
+# 📚 Full list of references for this part are in the README.md file.
 
-# https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.select_dtypes.html
-# https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.corr.html
-# https://realpython.com/numpy-scipy-pandas-correlation-python/
-# https://www.geeksforgeeks.org/how-to-draw-2d-heatmap-using-matplotlib-in-python/
-# https://stackoverflow.com/questions/33282368/plotting-a-2d-heatmap
-# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html
-# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html
-# https://matplotlib.org/stable/users/explain/colors/colormaps.html
-# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.colorbar.html
-# https://www.geeksforgeeks.org/numpy-arrange-in-python/
-# https://www.w3schools.com/datascience/ds_stat_correlation_matrix.asp
-# https://numpy.org/doc/stable/reference/generated/numpy.arange.html
-# https://docs.python.org/3/library/functions.html#len
-# https://stackoverflow.com/questions/29432629/plot-correlation-matrix-using-pandas
-# https://stackoverflow.com/questions/18648626/for-loop-with-two-variables
-# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.text.html
-# https://www.geeksforgeeks.org/add-text-inside-the-plot-in-matplotlib/
-# https://stackoverflow.com/questions/29294983/how-to-calculate-correlation-between-all-columns-and-remove-highly-correlated-on
-# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
