@@ -538,13 +538,19 @@ sns.boxplot(x="species", y="petal_length", data=df, palette="Set2")
   # Custom colour palette
 # 📚 https://seaborn.pydata.org/generated/seaborn.boxplot.html
 
-# Adding titles and labels
+# Adding strip plot to show individual data points
+# This adds individual data points on top of the box plot
+sns.stripplot(x="species", y="petal_length", data=df, color="red", size=4, jitter=True, dodge=True, alpha=0.6)
+# 📚 https://seaborn.pydata.org/generated/seaborn.stripplot.html
 
+# Adding titles and labels
 plt.xlabel("Species")                      # X-axis label → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html
 plt.ylabel("Petal Length (cm)")            # Y-axis label → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html
 plt.title("Class Distribution")  # Overall plot title → 📚 https://www.geeksforgeeks.org/matplotlib-pyplot-title-in-python/
 
-plt.savefig("class_distribution_petal_length.png")
+plt.grid(True)  # Adding grid lines to the plot to make it easier to read → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
+
+plt.savefig("boxplot_class_distribution_petal_length.png")
 plt.close()
 
 
@@ -558,11 +564,15 @@ plt.figure(figsize=(8, 6))
 
 sns.boxplot(x="species", y="sepal_length", data=df, palette="rocket")
 
+sns.stripplot(x="species", y="petal_length", data=df, color="red", size=4, jitter=True, dodge=True, alpha=0.6)
+
 plt.xlabel("Species")                    
 plt.ylabel("Sepal Length (cm)")          
 plt.title("Class Distribution: Sepal Length") 
 
-plt.savefig("class_distribution_sepal_length.png")
+plt.grid(True)
+
+plt.savefig("boxplot_class_distribution_sepal_length.png")
 plt.close()
 
 
@@ -578,6 +588,7 @@ plt.close()
 # https://www.geeksforgeeks.org/matplotlib-pyplot-title-in-python/
 # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
 # https://www.geeksforgeeks.org/matplotlib-pyplot-savefig-in-python/
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
 
 
 
