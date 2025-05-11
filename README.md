@@ -12,9 +12,9 @@ This research titled *"The use of multiple measurements in taxonomic problems"* 
 - *Iris virginica* 
 
 Attribute information dataset is:
-- Sepal length (cm)*
-- Sepal width (cm)*
-- Petal length (cm)*
+- Sepal length (cm)
+- Sepal width (cm)
+- Petal length (cm)
 - Petal width (cm)
 - Class
 

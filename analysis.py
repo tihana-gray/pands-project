@@ -565,12 +565,12 @@ plt.figure(figsize=(8, 6))
 
 sns.boxplot(x="species", y="sepal_length", hue="species", data=df, palette="rocket")
 
-sns.stripplot(x="species", y="petal_length", data=df, color="red", size=4, jitter=True, dodge=True, alpha=0.6)
+sns.stripplot(x="species", y="sepal_length", data=df, color="red", size=4, jitter=True, dodge=True, alpha=0.6)
 
 plt.xlabel("Species")                    
 plt.ylabel("Sepal Length (cm)")          
 plt.title("Class Distribution: Sepal Length") 
-plt.suptitle("Showing petal length variation across species", fontsize=10, color="dimgray")
+plt.suptitle("Showing sepal length variation across species", fontsize=10, color="dimgray")
 
 plt.grid(True)
 
@@ -616,7 +616,7 @@ sns.stripplot(x="species", y="petal_width", data=df, color="red", size=4, jitter
 plt.xlabel("Species")                    
 plt.ylabel("Petal Width (cm)")          
 plt.title("Class Distribution: Petal Width") 
-plt.suptitle("Showing Petal width variation across species", fontsize=10, color="dimgray")
+plt.suptitle("Showing petal width variation across species", fontsize=10, color="dimgray")
 
 plt.grid(True)
 
