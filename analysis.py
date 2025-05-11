@@ -530,7 +530,7 @@ plt.close()
 
 plt.figure(figsize=(8, 6))  # Setting figure width to 8 and height to 6 inches
 
-sns.boxplot(x="species", y="petal_length", data=df, palette="Set2")
+sns.boxplot(x="species", y="petal_length", hue="species", data=df, palette="Set2")
   # Shows categorical variable on x-axis and numerical variable on y-axis
   # x="species" shows a separate box for each class of species
   # y="petal_length" shows the distribution of petal lengths for each species
@@ -539,7 +539,7 @@ sns.boxplot(x="species", y="petal_length", data=df, palette="Set2")
 # 📚 https://seaborn.pydata.org/generated/seaborn.boxplot.html
 
 # Adding strip plot to show individual data points
-# This adds individual data points on top of the box plot
+# This adds underlying distributions on top of the box plot
 sns.stripplot(x="species", y="petal_length", data=df, color="red", size=4, jitter=True, dodge=True, alpha=0.6)
 # 📚 https://seaborn.pydata.org/generated/seaborn.stripplot.html
 
@@ -562,7 +562,7 @@ plt.close()
 
 plt.figure(figsize=(8, 6))
 
-sns.boxplot(x="species", y="sepal_length", data=df, palette="rocket")
+sns.boxplot(x="species", y="sepal_length", hue="species", data=df, palette="rocket")
 
 sns.stripplot(x="species", y="petal_length", data=df, color="red", size=4, jitter=True, dodge=True, alpha=0.6)
 
@@ -589,8 +589,8 @@ plt.close()
 # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
 # https://www.geeksforgeeks.org/matplotlib-pyplot-savefig-in-python/
 # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
-
-
+# https://seaborn.pydata.org/generated/seaborn.stripplot.html
+# https://www.geeksforgeeks.org/how-to-make-boxplots-with-data-points-using-seaborn-in-python/
 
 
 
