@@ -22,6 +22,7 @@ The primary objective of examining this dataset frequently involves determining 
 It is commonly used in tutorials for learning Python libraries such as NumPy, Pandas, Matplotlib, and Scikit-learn. It’s also an excellent dataset to practice working with lists, loops, conditionals, and basic statistics.
 
 **📚 References:**
+
 - https://archive.ics.uci.edu/dataset/53/iris
 - https://scikit-learn.org/1.4/auto_examples/datasets/plot_iris_dataset.html
 - https://www.kaggle.com/datasets/uciml/iris
@@ -193,7 +194,8 @@ Each statistic is written to the file using `f.write()`. Values are rounded to t
 
 After writing, the file is closed using `f.close()` and then reopened in read mode `("r")` to print its contents to the terminal.
 
-**📚 References (full list of refrences provided with the code):**
+**📚 References for this part:**
+
 - https://www.w3schools.com/python/python_tuples.asp
 - https://www.w3schools.com/python/python_for_loops.asp
 - https://realpython.com/python-for-loop/
@@ -237,7 +239,8 @@ The variables are:
 
 The script loops through each variable using a tuple that pairs variable names with their corresponding list of values. For each variable, a histogram is plotted using `sns.histplot()` with 20 bins and a clean color scheme (skyblue fill and black edge). Labels, titles, and grid lines are added using `matplotlib.pyplot` functions. The final figure is saved as a .png file named after the variable (e.g., `sepal_length_histogram.png`).
 
-**📚 References (full list of refrences provided with the code):**
+**📚 References for this part:**
+
 - https://matplotlib.org/stable/users/index.html
 - https://seaborn.pydata.org/
 - https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html
@@ -273,7 +276,8 @@ Stages:
 4. Next part calculated correlation between 2 selected variable pairs - `.corr()` is used to present correlations between columns and `.iloc[0, 1]` tells Pandas to give me the value from the first row and second column, which is the actual correlation between the plotted variables.
 5. Afterwards, the plot is saved as PNG file and closed.
 
-*📚 References (full list of refrences provided with the code):**
+**📚 References for this part:**
+
 - https://matplotlib.org/stable/users/index.html
 - https://seaborn.pydata.org/
 - https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.columns.html
@@ -307,3 +311,45 @@ Stages:
 ## 💭 *Personal Learning Notes on this part:*
 
  At earlier stage of the project I started working on scatter plots instead of histograms and then I tried using a nested loop that repeats over pairs of variable. The idea was to automate the plotting process by reducing code duplication. However, this method has limitations because I couldn't get the flexibility I needed for colour grouping by species or styling. That's why I decided to use the already tested version, done for 'Principles of Data Analytics' module. In this code version, I duplicated the same code structure for each pair of variables and had better control of what I'm doing regarding grouping by species, adding visual features, etc. 
+
+
+ ----------------------------------------------------------------------------------------------------------------------
+
+## 📊 Part 7: Other Analysis and Visualisation
+
+1. **Box Plots: Class Distribution**
+
+This part of the analysis presents how the four main numerical measurements (sepal length, sepal width, petal length, and petal width) are distributed across the three iris species. The goal was to visually compare the range and variation of each measurement grouped by class (species).
+
+To achieve this, I used a combination of box plots and strip plots. Box plots are useful for summarising distributions and comparing characteristics of data between categories. Strip plots show individual data points layered over the box plot for clearer interpretation.
+
+Each plot is generated using `Seaborn` and `Matplotlib`. I started by creating a new figure using `plt.figure(figsize=(8, 6))`, which provides consistency across all visualisations. I used `sns.boxplot()` to create a box plot, where the x-axis represents species and the y-axis represents one of the numerical features. The `hue="species"` ensures colour separation for each species, and the palette is customised for each box plot. `sns.stripplot()` is used to add individual observations to the plot. These red dots give a clearer picture of how data points are distributed within each category. The use of jitter=True helps spread overlapping points horizontally, and alpha=0.6 makes them semi-transparent so that patterns are still visible beneath the box plot. I also added grid lined, subtitle and axis labels to improve readibility.
+
+I repated this process for each of the four measurements.
+
+**📚 References for this part:**
+
+- https://www.geeksforgeeks.org/box-plot/
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html
+- https://seaborn.pydata.org/generated/seaborn.countplot.html
+- https://seaborn.pydata.org/generated/seaborn.boxplot.html
+- https://www.geeksforgeeks.org/boxplot-using-seaborn-in-python/
+- https://seaborn.pydata.org/tutorial/color_palettes.html
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.htm
+- https://www.geeksforgeeks.org/matplotlib-pyplot-title-in-python/
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
+- https://www.geeksforgeeks.org/matplotlib-pyplot-savefig-in-python/
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
+- https://seaborn.pydata.org/generated/seaborn.stripplot.html
+- https://www.geeksforgeeks.org/stripplot-using-seaborn-in-python/
+- https://www.geeksforgeeks.org/how-to-make-boxplots-with-data-points-using-seaborn-in-python/
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.suptitle.html
+- https://www.geeksforgeeks.org/matplotlib-pyplot-suptitle-function-in-python/
+
+
+## 💭 *Personal Learning Notes on this part:*
+
+At the beginning, I tried to experiment with `sns.countplot()` but that made my box plot layout distorted and I decided to remove that completely. Also, initially I only used box plots but then decided to add `sns.stripplot()` because it looks nicer to see clusters and it's something I haven't tried before.
+

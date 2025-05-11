@@ -623,25 +623,23 @@ plt.grid(True)
 plt.savefig("boxplot_class_distribution_petal_width.png")
 plt.close()
 
+# 📚 Full list of references for this part are in the README.md file.
 
-# 📚 References:
-# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html
-# https://seaborn.pydata.org/generated/seaborn.countplot.html
-# https://seaborn.pydata.org/generated/seaborn.boxplot.html
-# https://www.geeksforgeeks.org/boxplot-using-seaborn-in-python/
-# https://seaborn.pydata.org/tutorial/color_palettes.html
-# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html
-# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html
-# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.htm
-# https://www.geeksforgeeks.org/matplotlib-pyplot-title-in-python/
-# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
-# https://www.geeksforgeeks.org/matplotlib-pyplot-savefig-in-python/
-# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
-# https://seaborn.pydata.org/generated/seaborn.stripplot.html
-# https://www.geeksforgeeks.org/stripplot-using-seaborn-in-python/
-# https://www.geeksforgeeks.org/how-to-make-boxplots-with-data-points-using-seaborn-in-python/
-# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.suptitle.html
-# https://www.geeksforgeeks.org/matplotlib-pyplot-suptitle-function-in-python/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
