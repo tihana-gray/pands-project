@@ -626,22 +626,30 @@ plt.close()
 # 📚 Full list of references for this part are in the README.md file.
 
 
+# ------------------------------
+# Feature Correlation Heatmap
+# ------------------------------
+
+# matplotlib and numpy are already imported above
+# This part shows the correlation between features in the dataset
+
+# Selecting only the numeric columns (excluding 'species', which is categorical) → 📚 https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.select_dtypes.html
+correlation_matrix = df.select_dtypes(include='number').corr()
+# The `.corr()` method calculates correlation coefficients between each pair of numeric features
+# The result is a DataFrame showing how strongly features move together (1 = perfect positive, -1 = perfect negative)
+# 📚 https://realpython.com/numpy-scipy-pandas-correlation-python/
+
+# Using imshow to create the heatmap → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html
+plt.imshow(correlation_matrix, cmap='coolwarm',
+plt.figure(figsize=(8, 6))  # Sets the figure size for the heatmap → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html
 
 
 
+# 📚 References:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.select_dtypes.html
+# https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.corr.html
+# https://realpython.com/numpy-scipy-pandas-correlation-python/
+# https://www.geeksforgeeks.org/how-to-draw-2d-heatmap-using-matplotlib-in-python/
+# https://stackoverflow.com/questions/33282368/plotting-a-2d-heatmap
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html
