@@ -547,6 +547,7 @@ sns.stripplot(x="species", y="petal_length", data=df, color="red", size=4, jitte
 plt.xlabel("Species")                      # X-axis label → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html
 plt.ylabel("Petal Length (cm)")            # Y-axis label → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html
 plt.title("Class Distribution")  # Overall plot title → 📚 https://www.geeksforgeeks.org/matplotlib-pyplot-title-in-python/
+plt.suptitle("Showing petal length variation across species", fontsize=10, color="dimgray")
 
 plt.grid(True)  # Adding grid lines to the plot to make it easier to read → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
 
@@ -569,6 +570,7 @@ sns.stripplot(x="species", y="petal_length", data=df, color="red", size=4, jitte
 plt.xlabel("Species")                    
 plt.ylabel("Sepal Length (cm)")          
 plt.title("Class Distribution: Sepal Length") 
+plt.suptitle("Showing petal length variation across species", fontsize=10, color="dimgray")
 
 plt.grid(True)
 
@@ -590,9 +592,10 @@ plt.close()
 # https://www.geeksforgeeks.org/matplotlib-pyplot-savefig-in-python/
 # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
 # https://seaborn.pydata.org/generated/seaborn.stripplot.html
+# https://www.geeksforgeeks.org/stripplot-using-seaborn-in-python/
 # https://www.geeksforgeeks.org/how-to-make-boxplots-with-data-points-using-seaborn-in-python/
-
-
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.suptitle.html
+# https://www.geeksforgeeks.org/matplotlib-pyplot-suptitle-function-in-python/
 
 
 
