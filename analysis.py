@@ -548,6 +548,24 @@ plt.savefig("class_distribution_petal_length.png")
 plt.close()
 
 
+# ------------------------------
+# Box plot for Sepal Length
+
+# (this code repeats the same process as above)
+# Different pallete is used for variety
+
+plt.figure(figsize=(8, 6))
+
+sns.boxplot(x="species", y="sepal_length", data=df, palette="rocket")
+
+plt.xlabel("Species")                    
+plt.ylabel("Sepal Length (cm)")          
+plt.title("Class Distribution: Sepal Length") 
+
+plt.savefig("class_distribution_sepal_length.png")
+plt.close()
+
+
 # 📚 References:
 # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html
 # https://seaborn.pydata.org/generated/seaborn.countplot.html
