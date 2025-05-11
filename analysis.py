@@ -659,7 +659,31 @@ plt.yticks(tick_marks, correlation_matrix.columns)
 # This sets the tick marks on the x and y axes to the column names of the correlation matrix
 # The `tick_marks` array is used to position the labels correctly
 
+# Loop through the correlation matrix and printing value at each cell location
+for i in range(len(correlation_matrix.columns)):
+    for j in range(len(correlation_matrix.columns)):
+        value = correlation_matrix.iloc[i, j]  # Get the correlation coefficient
+        plt.text(j, i, f"{value:.2f}", ha='center', va='center', color='black')
+        # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.text.html
+        # This adds the text to the heatmap at the correct position
+        # `ha='center'` and `va='center'` center the text in the cell   
+        # `color='black'` sets the text colour to black
+        # `f"{value:.2f}"` formats the value to 2 decimal places
+        # `correlation_matrix.iloc[i, j]` gets the value at row i and column j of the correlation matrix
+        # `plt.text()` places the text at the specified coordinates (j, i) in the plot
+        # `plt.text()` is used to add text annotations to the plot
+        # `j` is the x-coordinate (column index) and `i` is the y-coordinate (row index)
+        # The text is the correlation value formatted to 2 decimal places
+        # `ha` and `va` specify the horizontal and vertical alignment of the text
+        # `color` sets the text colour to black for better visibility
+        # This loop goes through each cell in the correlation matrix and adds the correlation value as text in the heatmap
 
+plt.title("Correlation Heatmap of Iris Features")  # Main plot title → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html
+plt.tight_layout()  # Automatically adjusts layout to prevent overlap → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.tight_layout.html
+
+# Exporting the final heatmap
+plt.savefig("correlation_heatmap_of_iris_features.png")
+plt.close()
 
 # 📚 References:
 
@@ -677,3 +701,8 @@ plt.yticks(tick_marks, correlation_matrix.columns)
 # https://numpy.org/doc/stable/reference/generated/numpy.arange.html
 # https://docs.python.org/3/library/functions.html#len
 # https://stackoverflow.com/questions/29432629/plot-correlation-matrix-using-pandas
+# https://stackoverflow.com/questions/18648626/for-loop-with-two-variables
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.text.html
+# https://www.geeksforgeeks.org/add-text-inside-the-plot-in-matplotlib/
+# https://stackoverflow.com/questions/29294983/how-to-calculate-correlation-between-all-columns-and-remove-highly-correlated-on
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html
