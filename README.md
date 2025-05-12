@@ -1,4 +1,4 @@
-# Programming and Scripting Project
+# Programming and Scripting Project: Fisher’s Iris Data Set
 
 ----------------------------------------------------------------------------------------------------------------------
 
@@ -6,7 +6,7 @@
 
 The Iris dataset, introduced by British statistician Ronald A. Fisher in a 1936 research publication, stands as one of the most extensively utilised datasets within the domains of data science and machine learning.
 
-This research titled *"The use of multiple measurements in taxonomic problems"* contains 150 samples (50 each) of iris flowers collected from there species:
+This research titled *"The use of multiple measurements in taxonomic problems"* contains 150 samples (50 each) of iris flowers collected from three species:
 - *Iris setosa*
 - *Iris versicolor*
 - *Iris virginica* 
@@ -37,6 +37,8 @@ I downloaded the Iris dataset from the official UCI Machine Learning Repository 
 
 I manually downloaded the iris.data file, along with the `iris.names` file (which contains summary descriptions of the columns and class labels), `iris.data` (which contains the full dataset with all 150 samples from the three species), `Index` file (showing the modification dates of the dataset) and `bezdekIris.data` (which also contains the full dataset with all 150 samples from the three species, named after one of the dataset researchers.)
 
+For this analysis, I used the `iris.data` file.
+
 **📚 References:**
 
 - https://archive.ics.uci.edu/dataset/53/iris
@@ -49,13 +51,14 @@ After downloading the files, I created a folder in my project called iris_data. 
 *The process of uploading to Git repository:*
 
 - I used the following commands: 
-`git add iris_data/`
-`git commit -m "Added original Iris dataset files from UC Irvine`
+`git add iris_data/`\
+`git commit -m "Added original Iris dataset files from UC Irvine`\
 `Source: https://archive.ics.uci.edu/dataset/53/iris"`
 
 **📚 References:**
 
 - https://graphite.dev/guides/how-to-push-code-from-vscode-to-github
+- module learning materials
 
 ----------------------------------------------------------------------------------------------------------------------
 
@@ -169,7 +172,7 @@ The rows are sorted alphabetically using `.sort_index()` and the table is printe
 
 ## 💭 *Personal Learning Notes on this part:*
 
-- I relied on online references used for similar taskwork from Principles of Data Analytics module. Perhaps some of the solutions are not as pratical as they could be but it made me more comnfortable to use something that I used before (and explore it in more detail/repurpose it).
+- I relied on online references used for similar taskwork from Principles of Data Analytics module. Perhaps some of the solutions are not as practical as they could be but it made me more comfortable to use something that I used before (and explore it in more detail/repurpose it).
 - My studying approach during this part and for text file/histogram part (and for previous module tasks) was to explore the code in the Notepad++ by using online references and examples and trying to replicate them to fit the task. Afterwards, I'd run the code in the VS Code and focus on errors, try different code versions and run the program again. However, this approach does not show detailed steps in GitHub so going forward I will save every step of the progress/testing in the repository.
 
 ----------------------------------------------------------------------------------------------------------------------
@@ -221,7 +224,7 @@ After writing, the file is closed using `f.close()` and then reopened in read mo
 
 ## 💭 *Personal Learning Notes on this part:*
 
-- I decided to adjust the code, after speaking to some of the collegaues because the previous solution seemed prone to errors. There was a bit of an issue with figuring out how to reopen filles after writing and wheter to use `x` or `w` mode.
+- I decided to adjust the code, after speaking to some of the colleagues because the previous solution seemed prone to errors. There was a bit of an issue with figuring out how to reopen filles after writing and wheter to use `x` or `w` mode.
 - Another issue was managing the structure and logic of the code when working with multiple related files.
 - I also struggled arround `NameError` after I updated the name variable in one place and couldn't find where it was actually used and where it needs to be updated.
 
@@ -237,7 +240,7 @@ The variables are:
 - `petal_length`
 - `petal_width`
 
-The script loops through each variable using a tuple that pairs variable names with their corresponding list of values. For each variable, a histogram is plotted using `sns.histplot()` with 20 bins and a clean color scheme (skyblue fill and black edge). Labels, titles, and grid lines are added using `matplotlib.pyplot` functions. The final figure is saved as a .png file named after the variable (e.g., `sepal_length_histogram.png`).
+The script loops through each variable using a tuple that pairs variable names with their corresponding list of values. For each variable, a histogram is plotted using `sns.histplot()` with 20 bins and a clean color scheme (skyblue fill and black edge). Labels, titles, and grid lines are added using `matplotlib.pyplot` functions. The final figure is saved as a .png file named after the variable (e.g., `histogram_sepal_length.png`).
 
 **📚 References for this part:**
 
@@ -280,7 +283,7 @@ Each scatter plot compares two variables and uses different color `seaborn` colo
 Stages:
 1. Importing necessary libraries - `Matplotlib` is used for plotting graphs and `Seaborn` helps to achieve better visualisation of data.
 2. I created 6 scatter plots, one for each unique pair of the four numerical values. For each plot two features were assigned to `x_feature` and `y_feature`. `sns.scatterplot()` was used to generate the plot.
-3. `Matplotlib` was used for adding labels and titles to the plot se we can clearly see what which axis represents.
+3. `Matplotlib` was used for adding labels and titles to the plot se we can clearly see which axis represents what.
 4. Next part calculated correlation between 2 selected variable pairs - `.corr()` is used to present correlations between columns and `.iloc[0, 1]` tells Pandas to give me the value from the first row and second column, which is the actual correlation between the plotted variables.
 5. Afterwards, the plot is saved as PNG file and closed.
 
@@ -331,9 +334,9 @@ This part of the analysis presents how the four main numerical measurements (sep
 
 To achieve this, I used a combination of box plots and strip plots. Box plots are useful for summarising distributions and comparing characteristics of data between categories. Strip plots show individual data points layered over the box plot for clearer interpretation.
 
-Each plot is generated using `Seaborn` and `Matplotlib` (already imported for the earlier task). I started by creating a new figure using `plt.figure(figsize=(8, 6))`, which provides consistency across all visualisations. I used `sns.boxplot()` to create a box plot, where the x-axis represents species and the y-axis represents one of the numerical features. The `hue="species"` ensures colour separation for each species, and the palette is customised for each box plot. `sns.stripplot()` is used to add individual observations to the plot. These red dots give a clearer picture of how data points are distributed within each category. The use of `jitter=True` helps spread overlapping points horizontally, and `alpha=0.6` makes them semi-transparent so that patterns are still visible beneath the box plot. I also added grid lined, subtitle and axis labels to improve readibility.
+Each plot is generated using `Seaborn` and `Matplotlib` (already imported for the earlier task). I started with correlation heatmap, which visually summarises relationships between numeric variables using Pandas `.corr()` and Matplotlib heatmap. I created a new figure using `plt.figure(figsize=(8, 6))`, which provides consistency across all visualisations. I used `sns.boxplot()` to create a box plot, where the x-axis represents species and the y-axis represents one of the numerical features. The `hue="species"` ensures colour separation for each species, and the palette is customised for each box plot. `sns.stripplot()` is used to add individual observations to the plot. These red dots give a clearer picture of how data points are distributed within each category. The use of `jitter=True` helps spread overlapping points horizontally, and `alpha=0.6` makes them semi-transparent so that patterns are still visible beneath the box plot. I also added grid lined, subtitle and axis labels to improve readability.
 
-I repated this process for each of the four measurements.
+I repeated this process for each of the four measurements.
 
 **📚 References for this part:**
 
