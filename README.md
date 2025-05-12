@@ -89,7 +89,7 @@ At the beginning of my script, I imported three libraries: `os`, `numpy`, and `p
 
 To start working with the Iris dataset, it's necessary to read the values from the file and organise them into something that Python can use for calculations.\ 
 I created lists for each dataset. The plan was to go through the file line by line and split each row into separate values and then store it in the appropriate list.\
-The function `open()` opens the file and reads it line by line. For each line:\
+The function `open()` opens the file and reads it line by line. For each line:
 - I looped over each line in the file
 - Extra spaces and newlines are removed using `.strip()`
 - The values are split into separate pieces using `.split(',')`
@@ -334,7 +334,7 @@ This part of the analysis presents how the four main numerical measurements (sep
 
 To achieve this, I used a combination of box plots and strip plots. Box plots are useful for summarising distributions and comparing characteristics of data between categories. Strip plots show individual data points layered over the box plot for clearer interpretation.
 
-Each plot is generated using `Seaborn` and `Matplotlib` (already imported for the earlier task). I started with correlation heatmap, which visually summarises relationships between numeric variables using Pandas `.corr()` and Matplotlib heatmap. I created a new figure using `plt.figure(figsize=(8, 6))`, which provides consistency across all visualisations. I used `sns.boxplot()` to create a box plot, where the x-axis represents species and the y-axis represents one of the numerical features. The `hue="species"` ensures colour separation for each species, and the palette is customised for each box plot. `sns.stripplot()` is used to add individual observations to the plot. These red dots give a clearer picture of how data points are distributed within each category. The use of `jitter=True` helps spread overlapping points horizontally, and `alpha=0.6` makes them semi-transparent so that patterns are still visible beneath the box plot. I also added grid lined, subtitle and axis labels to improve readability.
+Each plot is generated using `Seaborn` and `Matplotlib` (already imported for the earlier task). I started with correlation heatmap, which visually summarises relationships between numeric variables using Pandas `.corr()` and Matplotlib heatmap. I created a new figure using `plt.figure(figsize=(8, 6))`, which provides consistency across all visualisations. I used `sns.boxplot()` to create a box plot, where the x-axis represents species and the y-axis represents one of the numerical features. The `hue="species"` ensures colour separation for each species, and the palette is customised for each box plot. `sns.stripplot()` is used to add individual observations to the plot. These red dots give a clearer picture of how data points are distributed within each category. The use of `jitter=True` helps spread overlapping points horizontally, and `alpha=0.6` makes them semi-transparent so that patterns are still visible beneath the box plot. I also added grid lines, subtitle and axis labels to improve readability.
 
 I repeated this process for each of the four measurements.
 
@@ -401,6 +401,6 @@ The heatmap was also given a title by using `plt.title()` and I adjusted the lay
 
 ## 💭 *Personal Learning Notes on this part:*
 
-I thought correlation heatmap would be appropriate addition to the research because I used it before I like the way it shows the strength and direction of relationships between all numeric features in one concise visual. It gives a quick overview of which features are closely related and which ones are not, which can support or challenge patterns observed earlier in the project.
+I thought correlation heatmap would be appropriate addition to the research because I used it before and I like the way it shows the strength and direction of relationships between all numeric features in one concise visual. It gives a quick overview of which features are closely related and which ones are not, which can support or challenge patterns observed earlier in the project.
 
 ## End
