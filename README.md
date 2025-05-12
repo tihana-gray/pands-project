@@ -87,7 +87,8 @@ At the beginning of my script, I imported three libraries: `os`, `numpy`, and `p
 
 1. **Reading the data from the file**
 
-To start working with the Iris dataset, it's necessary to read the values from the file and organise them into something that Python can use for calculations.\ 
+To start working with the Iris dataset, it's necessary to read the values from the file and organise them into something that Python can use for calculations. 
+
 I created lists for each dataset. The plan was to go through the file line by line and split each row into separate values and then store it in the appropriate list.\
 The function `open()` opens the file and reads it line by line. For each line:
 - I looped over each line in the file
