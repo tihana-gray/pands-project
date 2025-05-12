@@ -267,7 +267,15 @@ During this part of the project, I went through several iterations of the code. 
 
 This section of the code created scatter plots for each unique pair of numerical variables in the Iris dataset. These plots visually present relationships between measurements and assess how they distinguish between species.
 
-Each scatter plot compares two variables (e.g., sepal length vs petal length) and uses different color `seaborn` colour palettes to differentiate between the three species of iris flowers. This helps in identifying patterns, clusters, and potential correlations within the data.
+Pairs of variables are:
+- Sepal Length vs Petal Length
+- Sepal Length vs Petal Width
+- Sepal Width vs Petal Length
+- Sepal Width vs Petal Width
+- Petal Length vs Petal Width
+- Petal Length vs Sepal Width
+
+Each scatter plot compares two variables and uses different color `seaborn` colour palettes to differentiate between the three species of iris flowers. This helps in identifying patterns, clusters, and potential correlations within the data.
 
 Stages:
 1. Importing necessary libraries - `Matplotlib` is used for plotting graphs and `Seaborn` helps to achieve better visualisation of data.
@@ -391,3 +399,5 @@ The heatmap was also given a title by using `plt.title()` and I adjusted the lay
 ## 💭 *Personal Learning Notes on this part:*
 
 I thought correlation heatmap would be appropriate addition to the research because I used it before I like the way it shows the strength and direction of relationships between all numeric features in one concise visual. It gives a quick overview of which features are closely related and which ones are not, which can support or challenge patterns observed earlier in the project.
+
+## End

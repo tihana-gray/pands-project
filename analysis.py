@@ -250,7 +250,7 @@ for item in iris_data:
     plt.grid(True)  # Adding grid lines to the plot to make it easier to read → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
    
     # Saving the plot using a filename based on the variable name
-    file_name = name + "_histogram.png"     # Making the file name
+    file_name = "histogram_" + name + ".png"     # Making the file name
     plt.savefig(file_name)                  # Saving the figure as a PNG file → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
 
     plt.close()   # Closing the figure to free up memory → 📚 https://www.geeksforgeeks.org/handling-memory-leaks-in-matplotlib/
@@ -315,7 +315,7 @@ plt.legend(title="Species")
 
 # Exporting the plot as a PNG file
 # The file name is set to "sepal_vs_petal_length_scatterplot.png"
-plt.savefig("sepal_vs_petal_length_scatterplot.png")  # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
+plt.savefig("scatterplot_sepal_length_vs_petal_length.png")  # 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
 plt.close()  # Close the figure after saving → 📚 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
 
 
@@ -353,7 +353,7 @@ plt.suptitle(f"Correlation: {corr:.2f}", fontsize=10, y=0.94, color='dimgray')
 
 plt.legend(title="Species")
 
-plt.savefig("sepal_vs_petal_width_scatterplot.png")
+plt.savefig("scatterplot_sepal_length_vs_petal_width.png")
 
 plt.close()
 
@@ -392,7 +392,7 @@ plt.suptitle(f"Correlation: {corr:.2f}", fontsize=10, y=0.94, color='dimgray')
 
 plt.legend(title="Species")
 
-plt.savefig("sepal_width_vs_petal_length_scatterplot.png")
+plt.savefig("scatterplot_sepal_width_vs_petal_length.png")
 
 plt.close()
 
@@ -431,7 +431,7 @@ plt.suptitle(f"Correlation: {corr:.2f}", fontsize=10, y=0.94, color='dimgray')
 
 plt.legend(title="Species")
 
-plt.savefig("sepal_width_vs_petal_width_scatterplot.png")
+plt.savefig("scatterplot_sepal_width_vs_petal_width.png")
 
 plt.close()
 
@@ -470,7 +470,7 @@ plt.suptitle(f"Correlation: {corr:.2f}", fontsize=10, y=0.94, color='dimgray')
 
 plt.legend(title="Species")
 
-plt.savefig("petal_length_vs_petal_width_scatterplot.png")  
+plt.savefig("scatterplot_petal_length_vs_petal_width.png")  
 plt.close()
 
 
@@ -481,7 +481,7 @@ plt.close()
 # Different pallete is used for variety
 # Shows how sepal width scales with petal length
 
-x_feature = "sepal_length"  
+x_feature = "petal_length"  
 y_feature = "sepal_width"
 
 plt.figure(figsize=(8, 6))
@@ -496,9 +496,9 @@ sns.scatterplot(
     alpha=0.8                
 )
 
-plt.xlabel("Sepal Length")         
+plt.xlabel("Petal Length")         
 plt.ylabel("Sepal Width")          
-plt.title("Sepal Length vs Sepal Width")
+plt.title("Petal Length vs Sepal Width")
 
 plt.grid(True)
 
@@ -508,7 +508,7 @@ plt.suptitle(f"Correlation: {corr:.2f}", fontsize=10, y=0.94, color='dimgray')
 
 plt.legend(title="Species")
 
-plt.savefig("sepal_length_vs_sepal_width_scatterplot.png")
+plt.savefig("scatterplot_petal_length_vs_sepal_width.png")
 plt.close()
 
 
@@ -686,6 +686,10 @@ plt.savefig("correlation_heatmap_of_iris_features.png")
 plt.close()
 
 # 📚 Full list of references for this part are in the README.md file.
+
+
+## End of the analysis
+# ------------------------------------------------------------
 
 
 
